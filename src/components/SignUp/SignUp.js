@@ -28,37 +28,43 @@ export class SignUp extends Component {
       error
     } = this.state;
 
+    const invalidUserInfo =
+      password !== confirmPassword ||
+      password === '' ||
+      email === '' ||
+      username === '';
+
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.submit}>
         <input
+          placeholder="Full Name"
+          name="username"
           value={username}
           onChange={event => this.handleInput(event)}
           type="text"
-          placeholder="Full Name"
-          name="username"
         />
         <input
+          placeholder="Email Address"
+          name="email"
           value={email}
           onChange={event => this.handleInput(event)}
           type="text"
-          placeholder="Email Address"
-          name="email"
         />
         <input
+          placeholder="Password"
+          name="password"
           value={password}
           onChange={event => this.handleInput(event)}
           type="password"
-          placeholder="Password"
-          name="password"
         />
         <input
+          placeholder="Confirm Password"
+          name="confirmPassword"
           value={confirmPassword}
           onChange={event => this.handleInput(event)}
           type="password"
-          placeholder="Confirm Password"
-          name="confirmPassword"
         />
-        <button type="submit">
+        <button type="submit" disabled={invalidUserInfo}>
           Sign Up
         </button>
 
