@@ -1,6 +1,6 @@
 import firebaseKey from '../src/keys';
 const key = firebaseKey;
-// Initialize Firebase
+
 var config = {
   apiKey: key,
   authDomain: "personal-project-1527122816740.firebaseapp.com",
