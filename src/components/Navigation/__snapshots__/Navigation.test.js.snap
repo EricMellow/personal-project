@@ -1,0 +1,305 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Navigation />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/distance"
+>
+          Distance
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/tags"
+>
+          Tags
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/create"
+>
+          Create Activity
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/signin"
+>
+          Sign In
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/signup"
+>
+          Sign Up
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          to="/account"
+>
+          Account
+</NavLink>,
+      ],
+      "className": "nav-bar",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Distance",
+          "to": "/distance",
+        },
+        "ref": null,
+        "rendered": "Distance",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Tags",
+          "to": "/tags",
+        },
+        "ref": null,
+        "rendered": "Tags",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Create Activity",
+          "to": "/create",
+        },
+        "ref": null,
+        "rendered": "Create Activity",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Sign In",
+          "to": "/signin",
+        },
+        "ref": null,
+        "rendered": "Sign In",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Sign Up",
+          "to": "/signup",
+        },
+        "ref": null,
+        "rendered": "Sign Up",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Account",
+          "to": "/account",
+        },
+        "ref": null,
+        "rendered": "Account",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            to="/distance"
+>
+            Distance
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            to="/tags"
+>
+            Tags
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            to="/create"
+>
+            Create Activity
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            to="/signin"
+>
+            Sign In
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            to="/signup"
+>
+            Sign Up
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            to="/account"
+>
+            Account
+</NavLink>,
+        ],
+        "className": "nav-bar",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Distance",
+            "to": "/distance",
+          },
+          "ref": null,
+          "rendered": "Distance",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Tags",
+            "to": "/tags",
+          },
+          "ref": null,
+          "rendered": "Tags",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Create Activity",
+            "to": "/create",
+          },
+          "ref": null,
+          "rendered": "Create Activity",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Sign In",
+            "to": "/signin",
+          },
+          "ref": null,
+          "rendered": "Sign In",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Sign Up",
+            "to": "/signup",
+          },
+          "ref": null,
+          "rendered": "Sign Up",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Account",
+            "to": "/account",
+          },
+          "ref": null,
+          "rendered": "Account",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

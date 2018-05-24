@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Navigation from "../Navigation/Navigation";
+import Landing from "../Landing/Landing";
+import Distance from "../Distance/Distance";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Navigation />
+        <Switch>
+          <Route
+            exact path='/'
+            component={Landing}
+          />
+          <Route
+            exact path='/distance'
+            component={Distance}
+          />
+        </Switch>
       </div>
     );
   }
