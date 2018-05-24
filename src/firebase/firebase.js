@@ -1,4 +1,5 @@
-import firebaseKey from '../src/keys';
+import firebaseKey from '../keys';
+import * as firebase from 'firebase';
 const key = firebaseKey;
 // Initialize Firebase
 var config = {
@@ -9,4 +10,11 @@ var config = {
   storageBucket: "",
   messagingSenderId: "182263229649"
 };
-firebase.initializeApp(config);
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
+
+const auth = firebase.auth();
+
+export { auth };
