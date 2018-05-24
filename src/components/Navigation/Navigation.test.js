@@ -10,6 +10,6 @@ describe('Navigation', () => {
   });
 
   it('should match the snapshot', () => {
-    expect(wrapper).toMatchTheSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });
