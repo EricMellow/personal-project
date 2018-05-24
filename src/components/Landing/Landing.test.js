@@ -2,7 +2,7 @@ import { Landing } from "./Landing";
 import { shallow } from "enzyme";
 import React from "react";
 
-describe('Navigation', () => {
+describe('Landing', () => {
   let wrapper;
 
   beforeEach(() => {
