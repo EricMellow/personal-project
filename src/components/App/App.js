@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navigation from "../Navigation/Navigation";
 import Landing from "../Landing/Landing";
+import Distance from "../Distance/Distance";
 
 class App extends Component {
   render() {
@@ -13,6 +14,10 @@ class App extends Component {
           <Route
             exact path='/'
             component={Landing}
+          />
+          <Route
+            exact path='/distance'
+            component={Distance}
           />
         </Switch>
       </div>
