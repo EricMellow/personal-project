@@ -1,3 +1,3 @@
 export const distanceMatrixKey = '';
 
-export const firebaseKey = 'AIzaSyCW7aEVwxixPMCgjNI1AuwuBz81-6lOzUM';
+export const firebaseKey = 'AIzaSyBmeisSWvznrqFeXcIeEH_UCsR_5q1YJG0';
