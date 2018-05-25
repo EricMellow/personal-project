@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Navigation from "../Navigation/Navigation";
 import Landing from "../Landing/Landing";
 import Distance from "../Distance/Distance";
+import SignUp from "../SignUp/SignUp";
 
 class App extends Component {
   render() {
@@ -19,10 +20,14 @@ class App extends Component {
             exact path='/distance'
             component={Distance}
           />
+          <Route
+            exact path='/signup'
+            component={SignUp}
+          />
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

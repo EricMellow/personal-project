@@ -1,4 +1,4 @@
-import firebaseKey from '../keys';
+import { firebaseKey } from '../keys';
 import * as firebase from 'firebase';
 const key = firebaseKey;
 // Initialize Firebase
