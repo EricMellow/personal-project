@@ -1,4 +1,4 @@
-import SignUp from "./SignIn";
+import SignIn from "./SignIn";
 import { shallow } from "enzyme";
 import React from "react";
 
