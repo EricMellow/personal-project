@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import './SignUp.css';
 import { auth } from '../../firebase';
-import { withRouter } from 'react-router-dom';
 
 export class SignUp extends Component {
   constructor(props) {
