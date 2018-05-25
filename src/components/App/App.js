@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Navigation from "../Navigation/Navigation";
 import Landing from "../Landing/Landing";
@@ -30,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

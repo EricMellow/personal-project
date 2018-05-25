@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './SignUp.css';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
+import { withRouter } from 'react-router-dom';
 
 export class SignUp extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ export class SignUp extends Component {
       [event.target.name]: event.target.value
     });
   }
+
   resetState = () => {
     this.setState({
       username: '',
@@ -34,6 +36,7 @@ export class SignUp extends Component {
     try {
       await auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password);
       this.resetState();
+      this.props.history.push('/');
     } catch (error) {
       this.setState({ error: error.message });
     }
@@ -55,7 +58,7 @@ export class SignUp extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.submit}>
+      <form onSubmit={event => this.storeData(event)}>
         <input
           placeholder="Full Name"
           name="username"
