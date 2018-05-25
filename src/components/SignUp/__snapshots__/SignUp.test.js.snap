@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SignUp />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <input
+          name="username"
+          onChange={[Function]}
+          placeholder="Full Name"
+          type="text"
+          value=""
+/>,
+        <input
+          name="email"
+          onChange={[Function]}
+          placeholder="Email Address"
+          type="text"
+          value=""
+/>,
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+/>,
+        <input
+          name="confirmPassword"
+          onChange={[Function]}
+          placeholder="Confirm Password"
+          type="password"
+          value=""
+/>,
+        <button
+          disabled={true}
+          type="submit"
+>
+          Sign Up
+</button>,
+        null,
+      ],
+      "onSubmit": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "name": "username",
+          "onChange": [Function],
+          "placeholder": "Full Name",
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "name": "email",
+          "onChange": [Function],
+          "placeholder": "Email Address",
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "name": "password",
+          "onChange": [Function],
+          "placeholder": "Password",
+          "type": "password",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "name": "confirmPassword",
+          "onChange": [Function],
+          "placeholder": "Confirm Password",
+          "type": "password",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Sign Up",
+          "disabled": true,
+          "type": "submit",
+        },
+        "ref": null,
+        "rendered": "Sign Up",
+        "type": "button",
+      },
+      null,
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <input
+            name="username"
+            onChange={[Function]}
+            placeholder="Full Name"
+            type="text"
+            value=""
+/>,
+          <input
+            name="email"
+            onChange={[Function]}
+            placeholder="Email Address"
+            type="text"
+            value=""
+/>,
+          <input
+            name="password"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value=""
+/>,
+          <input
+            name="confirmPassword"
+            onChange={[Function]}
+            placeholder="Confirm Password"
+            type="password"
+            value=""
+/>,
+          <button
+            disabled={true}
+            type="submit"
+>
+            Sign Up
+</button>,
+          null,
+        ],
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "name": "username",
+            "onChange": [Function],
+            "placeholder": "Full Name",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "name": "email",
+            "onChange": [Function],
+            "placeholder": "Email Address",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "name": "password",
+            "onChange": [Function],
+            "placeholder": "Password",
+            "type": "password",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "name": "confirmPassword",
+            "onChange": [Function],
+            "placeholder": "Confirm Password",
+            "type": "password",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sign Up",
+            "disabled": true,
+            "type": "submit",
+          },
+          "ref": null,
+          "rendered": "Sign Up",
+          "type": "button",
+        },
+        null,
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
