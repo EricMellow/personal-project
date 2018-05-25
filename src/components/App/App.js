@@ -5,6 +5,7 @@ import Navigation from "../Navigation/Navigation";
 import Landing from "../Landing/Landing";
 import Distance from "../Distance/Distance";
 import SignUp from "../SignUp/SignUp";
+import SignIn from "../SignIn/SignIn";
 
 class App extends Component {
   render() {
@@ -23,6 +24,10 @@ class App extends Component {
           <Route
             exact path='/signup'
             component={SignUp}
+          />
+          <Route
+            exact path='/signin'
+            component={SignIn}
           />
         </Switch>
       </div>
