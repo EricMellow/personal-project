@@ -16,7 +16,7 @@ describe('SignUp', () => {
   describe('handleInput', () => {
     
     it('should set the correct key/value pair in state with the incomming event data', () => {
-      const wrapper = shallow(<SignUp />)
+      const wrapper = shallow(<SignUp />);
       const mockEvent = {
         target: {
           name: 'password',
@@ -39,8 +39,34 @@ describe('SignUp', () => {
       };
 
       expect(wrapper.state()).toEqual(initialExpected);
-      wrapper.instance().handleInput(mockEvent)
-      expect(wrapper.state()).toEqual(finalExpected)
+      wrapper.instance().handleInput(mockEvent);
+      expect(wrapper.state()).toEqual(finalExpected);
+    });
+  });
+
+  describe('resetState', () => {
+    
+    it('should reset the state to the default settings', () => {
+      const wrapper = shallow(<SignUp />);
+      const initialState = {
+        username: 'test',
+        email: 'test@test.com',
+        password: 'password',
+        confirmPassword: 'password',
+        error: null
+      };
+      wrapper.setState(initialState);
+      const expected = {
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        error: null
+      };
+
+      expect(wrapper.state()).toEqual(initialState);
+      wrapper.instance().resetState();
+      expect(wrapper.state()).toEqual(expected);
     });
   });
 });
