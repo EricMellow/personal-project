@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './SignUp.css';
+import { auth } from '../firebase';
 
 export class SignUp extends Component {
   constructor(props) {
@@ -17,6 +18,25 @@ export class SignUp extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+  }
+  resetState = () => {
+    this.setState({
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      error: null
+    });
+  }
+
+  storeData = async (event) => {
+    event.preventDefault();
+    try {
+      await auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password);
+      this.resetState();
+    } catch (error) {
+      this.setState({ error: error.message });
+    }
   }
 
   render() {
@@ -68,7 +88,7 @@ export class SignUp extends Component {
           Sign Up
         </button>
 
-        {error && <p>Oops!</p>}
+        {error && <p>{error}</p>}
       </form>
     );
   }
