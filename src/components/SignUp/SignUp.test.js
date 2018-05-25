@@ -126,6 +126,40 @@ describe('SignUp', () => {
 
   });
 
-  
+  describe('return', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<SignUp />);
+      wrapper.instance().storeData = jest.fn()
+      wrapper.instance().handleInput = jest.fn();
+    });
+    
+    it('should call storeData on submit', () => {
+      wrapper.find('form').simulate('submit');
+      expect(wrapper.instance().storeData).toHaveBeenCalled();
+    });
+
+    it('should call handleInput on change of the username input', () => {
+      wrapper.find('input.name-input').simulate('change');
+      expect(wrapper.instance().handleInput).toHaveBeenCalled();
+    });
+
+    it('should call handleInput on change of the email input', () => {
+      wrapper.find('input.email-input').simulate('change');
+      expect(wrapper.instance().handleInput).toHaveBeenCalled();
+    });
+
+    it('should call handleInput on change of the password input', () => {
+      wrapper.find('input.password-input').simulate('change');
+      expect(wrapper.instance().handleInput).toHaveBeenCalled();
+    });
+
+    it('should call handleInput on change of the confirm password input', () => {
+      wrapper.find('input.confirm-input').simulate('change');
+      expect(wrapper.instance().handleInput).toHaveBeenCalled();
+    });
+
+  });
 
 });
