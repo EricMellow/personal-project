@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { auth } from "../../firebase";
 import { connect } from "react-redux";
 import { removeAuthenticatedUser } from "../../actions/authenticateUser";
+import { removeUserId } from "../../actions/userIdActions";
 
 const Navigation = ({ authUser }) => {
   return (authUser ? <AuthNavigation /> : <UnauthNavigation />);
@@ -31,6 +32,7 @@ const AuthNavigation = () => {
         to="/" 
         onClick={() => {
           auth.doSignOut();
+          this.props.removeId();
           this.props.removeUser();
         }} 
         className="nav-button">
@@ -60,7 +62,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  removeuser: () => dispatch(removeAuthenticatedUser())
+  removeUser: () => dispatch(removeAuthenticatedUser()),
+  removeId: () => dispatch(removeUserId)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
