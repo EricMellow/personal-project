@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import './SignIn.css';
 import { auth } from '../../firebase';
+import { connect } from 'react-redux';
+import { authenticateUser } from "../../actions/authenticateUser";
+
+
 
 export class SignIn extends Component {
   constructor(props) {
@@ -31,6 +35,7 @@ export class SignIn extends Component {
     try {
       await auth.doSignInWithEmailAndPassword(this.state.email, this.state.password);
       this.resetState();
+      this.props.authenticate();
       this.props.history.push('/distance');
     } catch (error) {
       this.setState({ error: error.message });
@@ -76,4 +81,8 @@ export class SignIn extends Component {
   }
 }
 
-export default SignIn;
+const mapDispatchToProps = (dispatch) => ({
+  authenticate: () => dispatch(authenticateUser())
+});
+
+export default connect(null, mapDispatchToProps)(SignIn);
