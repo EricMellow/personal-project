@@ -35,7 +35,7 @@ export const AuthNavigation = () => {
           this.props.removeId();
           this.props.removeUser();
         }} 
-        className="nav-button">
+        className="nav-button sign-out">
         Sign Out
       </NavLink>
       <NavLink 

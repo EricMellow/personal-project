@@ -4,7 +4,10 @@ exports[`Navigation AuthNavigation should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__unrendered__): <Unknown
+    removeId={[Function]}
+    removeUser={[Function]}
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -45,7 +48,7 @@ ShallowWrapper {
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
-          className="nav-button"
+          className="nav-button sign-out"
           onClick={[Function]}
           to="/"
 >
@@ -117,7 +120,7 @@ ShallowWrapper {
           "activeClassName": "active",
           "ariaCurrent": "true",
           "children": "Sign Out",
-          "className": "nav-button",
+          "className": "nav-button sign-out",
           "onClick": [Function],
           "to": "/",
         },
@@ -177,7 +180,7 @@ ShallowWrapper {
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
-            className="nav-button"
+            className="nav-button sign-out"
             onClick={[Function]}
             to="/"
 >
@@ -249,7 +252,7 @@ ShallowWrapper {
             "activeClassName": "active",
             "ariaCurrent": "true",
             "children": "Sign Out",
-            "className": "nav-button",
+            "className": "nav-button sign-out",
             "onClick": [Function],
             "to": "/",
           },

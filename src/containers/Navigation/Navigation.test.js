@@ -7,6 +7,7 @@ import {
 } from "./Navigation";
 import { shallow } from "enzyme";
 import React from "react";
+import { auth } from "../../firebase";
 
 describe('Navigation', () => {
   let wrapper;
@@ -21,14 +22,29 @@ describe('Navigation', () => {
 
   describe('AuthNavigation', () => {
     let wrapper;
+    let mockRemoveId;
+    let mockRemoveUser;
 
     beforeEach(() => {
-      wrapper = shallow(<AuthNavigation />);
+      auth.doSignOut = jest.fn();
+      mockRemoveId = jest.fn();
+      mockRemoveUser = jest.fn();
+      wrapper = shallow(<AuthNavigation 
+        removeId={mockRemoveId}
+        removeUser={mockRemoveUser}
+      />);
     });
 
     it('should match the snapshot', () => {
       expect(wrapper).toMatchSnapshot();
     });
+
+    // it('should call auth.doSignOut when the Sign Out button is clicked', () => {
+    //   wrapper.find('.sign-out').simulate('click');
+    //   expect(auth.doSignOut).toHaveBeenCalled();
+    // });
+
+
   });
 
   describe('Navigation', () => {
