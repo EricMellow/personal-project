@@ -33,7 +33,7 @@ export class SignIn extends Component {
   storeData = async (event) => {
     event.preventDefault();
     try {
-      const user = await auth.doSignInWithEmailAndPassword(this.state.email, this.state.password);
+      await auth.doSignInWithEmailAndPassword(this.state.email, this.state.password);
       this.resetState();
       this.props.authenticate();
       this.props.history.push('/distance');
