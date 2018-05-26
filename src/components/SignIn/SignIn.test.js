@@ -40,5 +40,26 @@ describe('SignIn', () => {
     });
   });
 
+  describe('resetState', () => {
+
+    it('should reset the state to the default settings', () => {
+      const wrapper = shallow(<SignIn />);
+      const initialState = {
+        email: 'test@test.com',
+        password: 'password',
+        error: null
+      };
+      wrapper.setState(initialState);
+      const expected = {
+        email: '',
+        password: '',
+        error: null
+      };
+
+      expect(wrapper.state()).toEqual(initialState);
+      wrapper.instance().resetState();
+      expect(wrapper.state()).toEqual(expected);
+    });
+  });
 
 });
