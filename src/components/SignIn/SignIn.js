@@ -53,6 +53,7 @@ export class SignIn extends Component {
         <input
           placeholder="Email Address"
           name="email"
+          className="input email-input"
           value={email}
           onChange={event => this.handleInput(event)}
           type="text"
@@ -60,6 +61,7 @@ export class SignIn extends Component {
         <input
           placeholder="Password"
           name="password"
+          className="input password-input"
           value={password}
           onChange={event => this.handleInput(event)}
           type="password"
