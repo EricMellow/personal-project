@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './SignUp.css';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import { connect } from 'react-redux';
 import { authenticateUser } from "../../actions/authenticateUser";
 
@@ -35,7 +35,9 @@ export class SignUp extends Component {
   storeData = async (event) => {
     event.preventDefault();
     try {
-      await auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password);
+      const authUser = auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password);
+      console.log(authUser.uid)
+      db.doCreateUser(authUser.uid, this.state.username, this.state.email);
       this.resetState();
       this.props.authenticate();
       this.props.history.push('/');
