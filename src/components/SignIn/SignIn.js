@@ -3,8 +3,7 @@ import './SignIn.css';
 import { auth } from '../../firebase';
 import { connect } from 'react-redux';
 import { authenticateUser } from "../../actions/authenticateUser";
-
-
+import { addUserId } from "../../actions/userIdActions";
 
 export class SignIn extends Component {
   constructor(props) {
@@ -33,7 +32,8 @@ export class SignIn extends Component {
   storeData = async (event) => {
     event.preventDefault();
     try {
-      await auth.doSignInWithEmailAndPassword(this.state.email, this.state.password);
+      const authUser = await auth.doSignInWithEmailAndPassword(this.state.email, this.state.password);
+      this.props.storeUserId(authUser.user.uid),
       this.resetState();
       this.props.authenticate();
       this.props.history.push('/distance');
@@ -82,7 +82,8 @@ export class SignIn extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  authenticate: () => dispatch(authenticateUser())
+  authenticate: () => dispatch(authenticateUser()),
+  storeUserId: (userId) => dispatch(addUserId(userId))
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);
