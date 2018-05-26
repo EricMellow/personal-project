@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navigation should match the snapshot 1`] = `
+exports[`Navigation AuthNavigation should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Navigation />,
+  Symbol(enzyme.__unrendered__): <Unknown
+    removeId={[Function]}
+    removeUser={[Function]}
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -21,6 +24,7 @@ ShallowWrapper {
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
+          className="nav-button"
           to="/distance"
 >
           Distance
@@ -28,6 +32,7 @@ ShallowWrapper {
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
+          className="nav-button"
           to="/tags"
 >
           Tags
@@ -35,6 +40,7 @@ ShallowWrapper {
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
+          className="nav-button"
           to="/create"
 >
           Create Activity
@@ -42,20 +48,16 @@ ShallowWrapper {
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
-          to="/signin"
+          className="nav-button sign-out"
+          onClick={[Function]}
+          to="/"
 >
-          Sign In
+          Sign Out
 </NavLink>,
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
-          to="/signup"
->
-          Sign Up
-</NavLink>,
-        <NavLink
-          activeClassName="active"
-          ariaCurrent="true"
+          className="nav-button"
           to="/account"
 >
           Account
@@ -73,6 +75,7 @@ ShallowWrapper {
           "activeClassName": "active",
           "ariaCurrent": "true",
           "children": "Distance",
+          "className": "nav-button",
           "to": "/distance",
         },
         "ref": null,
@@ -87,6 +90,7 @@ ShallowWrapper {
           "activeClassName": "active",
           "ariaCurrent": "true",
           "children": "Tags",
+          "className": "nav-button",
           "to": "/tags",
         },
         "ref": null,
@@ -101,6 +105,7 @@ ShallowWrapper {
           "activeClassName": "active",
           "ariaCurrent": "true",
           "children": "Create Activity",
+          "className": "nav-button",
           "to": "/create",
         },
         "ref": null,
@@ -114,25 +119,13 @@ ShallowWrapper {
         "props": Object {
           "activeClassName": "active",
           "ariaCurrent": "true",
-          "children": "Sign In",
-          "to": "/signin",
+          "children": "Sign Out",
+          "className": "nav-button sign-out",
+          "onClick": [Function],
+          "to": "/",
         },
         "ref": null,
-        "rendered": "Sign In",
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "activeClassName": "active",
-          "ariaCurrent": "true",
-          "children": "Sign Up",
-          "to": "/signup",
-        },
-        "ref": null,
-        "rendered": "Sign Up",
+        "rendered": "Sign Out",
         "type": [Function],
       },
       Object {
@@ -143,6 +136,7 @@ ShallowWrapper {
           "activeClassName": "active",
           "ariaCurrent": "true",
           "children": "Account",
+          "className": "nav-button",
           "to": "/account",
         },
         "ref": null,
@@ -162,6 +156,7 @@ ShallowWrapper {
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
+            className="nav-button"
             to="/distance"
 >
             Distance
@@ -169,6 +164,7 @@ ShallowWrapper {
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
+            className="nav-button"
             to="/tags"
 >
             Tags
@@ -176,6 +172,7 @@ ShallowWrapper {
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
+            className="nav-button"
             to="/create"
 >
             Create Activity
@@ -183,20 +180,16 @@ ShallowWrapper {
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
-            to="/signin"
+            className="nav-button sign-out"
+            onClick={[Function]}
+            to="/"
 >
-            Sign In
+            Sign Out
 </NavLink>,
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
-            to="/signup"
->
-            Sign Up
-</NavLink>,
-          <NavLink
-            activeClassName="active"
-            ariaCurrent="true"
+            className="nav-button"
             to="/account"
 >
             Account
@@ -214,6 +207,7 @@ ShallowWrapper {
             "activeClassName": "active",
             "ariaCurrent": "true",
             "children": "Distance",
+            "className": "nav-button",
             "to": "/distance",
           },
           "ref": null,
@@ -228,6 +222,7 @@ ShallowWrapper {
             "activeClassName": "active",
             "ariaCurrent": "true",
             "children": "Tags",
+            "className": "nav-button",
             "to": "/tags",
           },
           "ref": null,
@@ -242,6 +237,7 @@ ShallowWrapper {
             "activeClassName": "active",
             "ariaCurrent": "true",
             "children": "Create Activity",
+            "className": "nav-button",
             "to": "/create",
           },
           "ref": null,
@@ -255,7 +251,199 @@ ShallowWrapper {
           "props": Object {
             "activeClassName": "active",
             "ariaCurrent": "true",
+            "children": "Sign Out",
+            "className": "nav-button sign-out",
+            "onClick": [Function],
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "Sign Out",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Account",
+            "className": "nav-button",
+            "to": "/account",
+          },
+          "ref": null,
+          "rendered": "Account",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Navigation Navigation should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          className="nav-button"
+          to="/distance"
+>
+          Distance
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          className="nav-button"
+          to="/signin"
+>
+          Sign In
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          className="nav-button"
+          to="/signup"
+>
+          Sign Up
+</NavLink>,
+      ],
+      "className": "nav-bar",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Distance",
+          "className": "nav-button",
+          "to": "/distance",
+        },
+        "ref": null,
+        "rendered": "Distance",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Sign In",
+          "className": "nav-button",
+          "to": "/signin",
+        },
+        "ref": null,
+        "rendered": "Sign In",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Sign Up",
+          "className": "nav-button",
+          "to": "/signup",
+        },
+        "ref": null,
+        "rendered": "Sign Up",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="nav-button"
+            to="/distance"
+>
+            Distance
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="nav-button"
+            to="/signin"
+>
+            Sign In
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="nav-button"
+            to="/signup"
+>
+            Sign Up
+</NavLink>,
+        ],
+        "className": "nav-bar",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Distance",
+            "className": "nav-button",
+            "to": "/distance",
+          },
+          "ref": null,
+          "rendered": "Distance",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
             "children": "Sign In",
+            "className": "nav-button",
             "to": "/signin",
           },
           "ref": null,
@@ -270,28 +458,57 @@ ShallowWrapper {
             "activeClassName": "active",
             "ariaCurrent": "true",
             "children": "Sign Up",
+            "className": "nav-button",
             "to": "/signup",
           },
           "ref": null,
           "rendered": "Sign Up",
           "type": [Function],
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "activeClassName": "active",
-            "ariaCurrent": "true",
-            "children": "Account",
-            "to": "/account",
-          },
-          "ref": null,
-          "rendered": "Account",
-          "type": [Function],
-        },
       ],
       "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Navigation should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

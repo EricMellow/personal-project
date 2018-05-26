@@ -6,11 +6,11 @@ import { connect } from "react-redux";
 import { removeAuthenticatedUser } from "../../actions/authenticateUser";
 import { removeUserId } from "../../actions/userIdActions";
 
-const Navigation = ({ authUser }) => {
+export const Navigation = ({ authUser }) => {
   return (authUser ? <AuthNavigation /> : <UnauthNavigation />);
 };
 
-const AuthNavigation = () => {
+export const AuthNavigation = () => {
   return (
     <div className='nav-bar'>
       <NavLink 
@@ -35,7 +35,7 @@ const AuthNavigation = () => {
           this.props.removeId();
           this.props.removeUser();
         }} 
-        className="nav-button">
+        className="nav-button sign-out">
         Sign Out
       </NavLink>
       <NavLink 
@@ -47,7 +47,7 @@ const AuthNavigation = () => {
   );
 };
 
-const UnauthNavigation = () => {
+export const UnauthNavigation = () => {
   return (
     <div className='nav-bar'>
       <NavLink to="/distance" className="nav-button">Distance</NavLink>
@@ -57,13 +57,13 @@ const UnauthNavigation = () => {
   )
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   authUser: state.authUser
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   removeUser: () => dispatch(removeAuthenticatedUser()),
-  removeId: () => dispatch(removeUserId)
+  removeId: () => dispatch(removeUserId())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

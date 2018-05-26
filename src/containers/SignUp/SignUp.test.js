@@ -1,7 +1,7 @@
-import SignUp from "./SignUp";
+import { SignUp, mapDispatchToProps } from "./SignUp";
 import { shallow } from "enzyme";
 import React from "react";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 
 describe('SignUp', () => {
   let wrapper;
@@ -47,7 +47,7 @@ describe('SignUp', () => {
 
   describe('resetState', () => {
 
-    it('should reset the state to the default settings', () => {
+    it('should reset the state to the default settings', async () => {
       const wrapper = shallow(<SignUp />);
       const initialState = {
         username: 'test',
@@ -56,7 +56,7 @@ describe('SignUp', () => {
         confirmPassword: 'password',
         error: null
       };
-      wrapper.setState(initialState);
+      await wrapper.setState(initialState);
       const expected = {
         username: '',
         email: '',
@@ -75,12 +75,20 @@ describe('SignUp', () => {
     let wrapper;
     let mockHistory;
     let mockEvent;
+    let mockStoreUserId;
+    let mockAuth;
 
     beforeEach(() => {
-      mockEvent = { preventDefault: jest.fn() }
+      mockEvent = { preventDefault: jest.fn() };
       mockHistory = { push: jest.fn() };
-      wrapper = shallow(<SignUp history={mockHistory}/>);
-      auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({}));
+      mockStoreUserId = jest.fn();
+      mockAuth = jest.fn();
+      wrapper = shallow(<SignUp
+        history={mockHistory}
+        storeUserId={mockStoreUserId}
+        authenticate={mockAuth}
+      />);
+      auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({ user: { uid: 12345 } }));
     });
 
     it('should call doCreateUserWithEmailAndPassword with the correct arguments', () => {
@@ -90,7 +98,7 @@ describe('SignUp', () => {
       });
 
       wrapper.instance().storeData(mockEvent);
-      expect(auth.doCreateUserWithEmailAndPassword).toHaveBeenCalledWith('test@test.com', 'trustnoone')
+      expect(auth.doCreateUserWithEmailAndPassword).toHaveBeenCalledWith('test@test.com', 'trustnoone');
     });
 
     it('should reset the state to the default parameters', async () => {
@@ -118,7 +126,7 @@ describe('SignUp', () => {
     // it('should set the error key in state with a value of the error message if there is an error', () => {
     //   auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.reject(new Error({message: 'oops!'})));
     //   const expected = 'oops!';
-      
+
     //   wrapper.instance().storeData(mockEvent);
     //   expect(wrapper.state('error')).toEqual(expected);
 
@@ -131,10 +139,10 @@ describe('SignUp', () => {
 
     beforeEach(() => {
       wrapper = shallow(<SignUp />);
-      wrapper.instance().storeData = jest.fn()
+      wrapper.instance().storeData = jest.fn();
       wrapper.instance().handleInput = jest.fn();
     });
-    
+
     it('should call storeData on submit', () => {
       wrapper.find('form').simulate('submit');
       expect(wrapper.instance().storeData).toHaveBeenCalled();
@@ -159,7 +167,32 @@ describe('SignUp', () => {
       wrapper.find('input.confirm-input').simulate('change');
       expect(wrapper.instance().handleInput).toHaveBeenCalled();
     });
+  });
 
+  describe('mapDispatchToProps', () => {
+
+    it('should call dispatch with the correct argument on authenticateUser', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'AUTHENTICATED_USER'
+      };
+
+      mappedProps.authenticate();
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct argument on addUserId', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'ADD_USER_ID',
+        userId: '123abc'
+      };
+
+      mappedProps.storeUserId('123abc');
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
   });
 
 });
