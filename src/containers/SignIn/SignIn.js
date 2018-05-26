@@ -81,7 +81,7 @@ export class SignIn extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   authenticate: () => dispatch(authenticateUser()),
   storeUserId: (userId) => dispatch(addUserId(userId))
 });

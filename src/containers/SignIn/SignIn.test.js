@@ -1,4 +1,4 @@
-import SignIn from "./SignIn";
+import { SignIn, mapDispatchToProps } from "./SignIn";
 import { shallow } from "enzyme";
 import React from "react";
 import { auth } from "../../firebase";
@@ -68,12 +68,20 @@ describe('SignIn', () => {
     let wrapper;
     let mockHistory;
     let mockEvent;
+    let mockAuth;
+    let mockStoreId;
 
     beforeEach(() => {
-      mockEvent = { preventDefault: jest.fn() }
+      mockEvent = { preventDefault: jest.fn() };
       mockHistory = { push: jest.fn() };
-      wrapper = shallow(<SignIn history={mockHistory} />);
-      auth.doSignInWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({}));
+      mockAuth = jest.fn();
+      mockStoreId = jest.fn();
+      wrapper = shallow(<SignIn 
+        history={mockHistory}
+        storeUserId={mockStoreId}
+        authenticate={mockAuth}
+      />);
+      auth.doSignInWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({user: {uid: 12345}}));
     });
 
     it('should call doSignInWithEmailAndPassword with the correct arguments', () => {
@@ -83,7 +91,7 @@ describe('SignIn', () => {
       });
 
       wrapper.instance().storeData(mockEvent);
-      expect(auth.doSignInWithEmailAndPassword).toHaveBeenCalledWith('test@test.com', 'trustnoone')
+      expect(auth.doSignInWithEmailAndPassword).toHaveBeenCalledWith('test@test.com', 'trustnoone');
     });
 
     it('should reset the state to the default parameters', async () => {
@@ -120,7 +128,7 @@ describe('SignIn', () => {
 
     beforeEach(() => {
       wrapper = shallow(<SignIn />);
-      wrapper.instance().storeData = jest.fn()
+      wrapper.instance().storeData = jest.fn();
       wrapper.instance().handleInput = jest.fn();
     });
 
@@ -137,6 +145,32 @@ describe('SignIn', () => {
     it('should call handleInput on change of the password input', () => {
       wrapper.find('input.password-input').simulate('change');
       expect(wrapper.instance().handleInput).toHaveBeenCalled();
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    
+    it('should call dispatch on authenticateUser with the correct arguments', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'AUTHENTICATED_USER'
+      };
+
+      mappedProps.authenticate();
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch on AddUserId with the correct arguments', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'ADD_USER_ID',
+        userId: 'abc123'
+      };
+
+      mappedProps.storeUserId('abc123');
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
     });
   });
 
