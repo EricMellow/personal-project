@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import './SignUp.css';
 import { auth } from '../../firebase';
+import { connect } from 'react-redux';
+import { authenticateUser } from "../../actions/authenticateUser";
 
 export class SignUp extends Component {
   constructor(props) {
@@ -35,6 +37,7 @@ export class SignUp extends Component {
     try {
       await auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password);
       this.resetState();
+      this.props.authenticate();
       this.props.history.push('/');
     } catch (error) {
       this.setState({ error: error.message });
@@ -100,4 +103,9 @@ export class SignUp extends Component {
   }
 }
 
-export default SignUp;
+const mapDispatchToProps = (dispatch) => ({
+  authenticate: () => dispatch(authenticateUser())
+});
+
+
+export default connect(null, mapDispatchToProps)(SignUp);
