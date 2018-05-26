@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Navigation from "../Navigation/Navigation";
-import Landing from "../Landing/Landing";
-import Distance from "../Distance/Distance";
+import Landing from "../../components/Landing/Landing";
+import Distance from "../../components/Distance/Distance";
 import SignUp from "../SignUp/SignUp";
 import SignIn from "../SignIn/SignIn";
 
