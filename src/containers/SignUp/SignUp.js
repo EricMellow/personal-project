@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import './SignIn.css';
-import { auth } from '../../firebase';
+import './SignUp.css';
+import { auth, db } from '../../firebase';
 import { connect } from 'react-redux';
 import { authenticateUser } from "../../actions/authenticateUser";
+import { addUserId } from "../../actions/userIdActions";
 
-
-
-export class SignIn extends Component {
+export class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: '',
       email: '',
       password: '',
+      confirmPassword: '',
       error: null
     };
   }
@@ -24,8 +25,10 @@ export class SignIn extends Component {
 
   resetState = () => {
     this.setState({
+      username: '',
       email: '',
       password: '',
+      confirmPassword: '',
       error: null
     });
   }
@@ -33,10 +36,12 @@ export class SignIn extends Component {
   storeData = async (event) => {
     event.preventDefault();
     try {
-      await auth.doSignInWithEmailAndPassword(this.state.email, this.state.password);
+      const authUser = await auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password);
+      await db.doCreateUser(authUser.user.uid, this.state.username, this.state.email);
       this.resetState();
+      this.props.storeUserId(authUser.user.uid);
       this.props.authenticate();
-      this.props.history.push('/distance');
+      this.props.history.push('/');
     } catch (error) {
       this.setState({ error: error.message });
     }
@@ -44,17 +49,29 @@ export class SignIn extends Component {
 
   render() {
     const {
+      username,
       email,
       password,
+      confirmPassword,
       error
     } = this.state;
 
     const invalidUserInfo =
+      password !== confirmPassword ||
       password === '' ||
-      email === '';
+      email === '' ||
+      username === '';
 
     return (
       <form onSubmit={event => this.storeData(event)}>
+        <input
+          placeholder="Full Name"
+          name="username"
+          className="input name-input"
+          value={username}
+          onChange={event => this.handleInput(event)}
+          type="text"
+        />
         <input
           placeholder="Email Address"
           name="email"
@@ -71,8 +88,16 @@ export class SignIn extends Component {
           onChange={event => this.handleInput(event)}
           type="password"
         />
+        <input
+          placeholder="Confirm Password"
+          name="confirmPassword"
+          className="input confirm-input"
+          value={confirmPassword}
+          onChange={event => this.handleInput(event)}
+          type="password"
+        />
         <button type="submit" disabled={invalidUserInfo}>
-          Sign In
+          Sign Up
         </button>
 
         {error && <p>{error}</p>}
@@ -82,7 +107,9 @@ export class SignIn extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  authenticate: () => dispatch(authenticateUser())
+  authenticate: () => dispatch(authenticateUser()),
+  storeUserId: (userId) => dispatch(addUserId(userId))
 });
 
-export default connect(null, mapDispatchToProps)(SignIn);
+
+export default connect(null, mapDispatchToProps)(SignUp);
