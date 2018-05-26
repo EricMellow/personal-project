@@ -3,6 +3,7 @@ import './SignUp.css';
 import { auth, db } from '../../firebase';
 import { connect } from 'react-redux';
 import { authenticateUser } from "../../actions/authenticateUser";
+import { addUserId } from "../../actions/userIdActions";
 
 export class SignUp extends Component {
   constructor(props) {
@@ -36,9 +37,9 @@ export class SignUp extends Component {
     event.preventDefault();
     try {
       const authUser = await auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password);
-      console.log(authUser)
       await db.doCreateUser(authUser.user.uid, this.state.username, this.state.email);
       this.resetState();
+      this.props.storeUserId(authUser.user.uid),
       this.props.authenticate();
       this.props.history.push('/');
     } catch (error) {
@@ -106,7 +107,8 @@ export class SignUp extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  authenticate: () => dispatch(authenticateUser())
+  authenticate: () => dispatch(authenticateUser()),
+  storeUserId: (userId) => dispatch(addUserId(userId))
 });
 
 
