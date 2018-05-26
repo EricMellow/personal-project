@@ -4,17 +4,18 @@ const key = firebaseKey;
 // Initialize Firebase
 var config = {
   apiKey: key,
-  authDomain: "personal-project-1527122816740.firebaseapp.com",
-  databaseURL: "https://personal-project-1527122816740.firebaseio.com",
-  projectId: "personal-project-1527122816740",
-  storageBucket: "",
-  messagingSenderId: "182263229649"
+  authDomain: "team-up-205121.firebaseapp.com",
+  databaseURL: "https://team-up-205121.firebaseio.com",
+  projectId: "team-up-205121",
+  storageBucket: "team-up-205121.appspot.com",
+  messagingSenderId: "1006505028992"
 };
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
+const db = firebase.database();
 const auth = firebase.auth();
 
-export { auth };
+export { db, auth };
