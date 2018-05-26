@@ -1,6 +1,8 @@
 import SignIn from "./SignIn";
 import { shallow } from "enzyme";
 import React from "react";
+import { auth } from "../../firebase";
+
 
 describe('SignIn', () => {
   let wrapper;
@@ -61,5 +63,58 @@ describe('SignIn', () => {
       expect(wrapper.state()).toEqual(expected);
     });
   });
+
+  describe('storeData', () => {
+    let wrapper;
+    let mockHistory;
+    let mockEvent;
+
+    beforeEach(() => {
+      mockEvent = { preventDefault: jest.fn() }
+      mockHistory = { push: jest.fn() };
+      wrapper = shallow(<SignIn history={mockHistory} />);
+      auth.doSignInWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({}));
+    });
+
+    it('should call doSignInWithEmailAndPassword with the correct arguments', () => {
+      wrapper.setState({
+        email: 'test@test.com',
+        password: 'trustnoone'
+      });
+
+      wrapper.instance().storeData(mockEvent);
+      expect(auth.doSignInWithEmailAndPassword).toHaveBeenCalledWith('test@test.com', 'trustnoone')
+    });
+
+    it('should reset the state to the default parameters', async () => {
+      const initialState = {
+        email: 'test@test.com',
+        password: 'password',
+        error: null
+      };
+      wrapper.setState(initialState);
+      const expected = {
+        email: '',
+        password: '',
+        error: null
+      };
+
+      expect(wrapper.state()).toEqual(initialState);
+      await wrapper.instance().storeData(mockEvent);
+      expect(wrapper.state()).toEqual(expected);
+    });
+
+    // it('should set the error key in state with a value of the error message if there is an error', () => {
+    //   auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.reject(new Error({message: 'oops!'})));
+    //   const expected = 'oops!';
+
+    //   wrapper.instance().storeData(mockEvent);
+    //   expect(wrapper.state('error')).toEqual(expected);
+
+    // });
+
+  });
+
+
 
 });
