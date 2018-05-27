@@ -6,6 +6,7 @@ import Landing from "../../components/Landing/Landing";
 import Distance from "../../components/Distance/Distance";
 import SignUp from "../SignUp/SignUp";
 import SignIn from "../SignIn/SignIn";
+import Tags from "../Tags/Tags";
 
 class App extends Component {
   render() {
@@ -20,6 +21,10 @@ class App extends Component {
           <Route
             exact path='/distance'
             component={Distance}
+          />
+          <Route
+            exact path='/tags'
+            component={Tags}
           />
           <Route
             exact path='/signup'
