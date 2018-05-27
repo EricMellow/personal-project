@@ -63,7 +63,7 @@ export class SignUp extends Component {
       username === '';
 
     return (
-      <form onSubmit={event => this.storeData(event)}>
+      <form className="sign-up" onSubmit={event => this.storeData(event)}>
         <input
           placeholder="Full Name"
           name="username"
@@ -96,7 +96,7 @@ export class SignUp extends Component {
           onChange={event => this.handleInput(event)}
           type="password"
         />
-        <button type="submit" disabled={invalidUserInfo}>
+        <button className="sign-up-btn" type="submit" disabled={invalidUserInfo}>
           Sign Up
         </button>
 

@@ -10,9 +10,10 @@ align-items: center;
 .input {
   background: none;
   height: 3rem;
-  width: none;
   border: 2px solid #ecb429;
   width: 20rem;
+  color: #ecb429;
+  padding-left: 10px;
   margin: 20px;
   font-size: 2rem;
   border-radius: 5px;
@@ -20,7 +21,7 @@ align-items: center;
 
 .sign-in-btn {
   height: 3rem;
-  width: 19.2rem;
+  width: 20rem;
   border-radius: 5px;
   font-size: 2rem;
   color: #ecb429;
