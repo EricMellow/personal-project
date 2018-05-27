@@ -50,7 +50,6 @@ export const AuthNavigation = () => {
 export const UnauthNavigation = () => {
   return (
     <div className='nav-bar'>
-      <NavLink to="/distance" className="nav-button">Distance</NavLink>
       <NavLink to="/signin" className="nav-button">Sign In</NavLink>
       <NavLink to="/signup" className="nav-button">Sign Up</NavLink>
     </div>
