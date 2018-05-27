@@ -5,7 +5,7 @@ export class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      zip: null
+      zip: undefined
     };
   }
 
