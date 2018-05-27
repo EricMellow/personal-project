@@ -1,0 +1,34 @@
+.sign-in {
+background: linear-gradient(to top, #0b3080 0%,#1a66bf 100%); 
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.input {
+  background: none;
+  height: 3rem;
+  width: none;
+  border: 2px solid #ecb429;
+  width: 20rem;
+  margin: 20px;
+  font-size: 2rem;
+  border-radius: 5px;
+}
+
+.sign-in-btn {
+  height: 3rem;
+  width: 19.2rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  color: #ecb429;
+  background: none;
+  border: 2px solid #ecb429;
+  margin: 20px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
