@@ -13,6 +13,7 @@ export class SignUp extends Component {
       email: '',
       password: '',
       confirmPassword: '',
+      zipcode: undefined,
       error: null
     };
   }
@@ -29,6 +30,7 @@ export class SignUp extends Component {
       email: '',
       password: '',
       confirmPassword: '',
+      zipcode: undefined,
       error: null
     });
   }
@@ -37,7 +39,7 @@ export class SignUp extends Component {
     event.preventDefault();
     try {
       const authUser = await auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password);
-      await db.doCreateUser(authUser.user.uid, this.state.username, this.state.email);
+      await db.doCreateUser(authUser.user.uid, this.state.username, this.state.email, this.state.zipcode);
       this.resetState();
       this.props.storeUserId(authUser.user.uid);
       this.props.authenticate();
@@ -53,6 +55,7 @@ export class SignUp extends Component {
       email,
       password,
       confirmPassword,
+      zipcode,
       error
     } = this.state;
 
@@ -60,10 +63,11 @@ export class SignUp extends Component {
       password !== confirmPassword ||
       password === '' ||
       email === '' ||
-      username === '';
+      username === '' ||
+      zipcode === null;
 
     return (
-      <form onSubmit={event => this.storeData(event)}>
+      <form className="sign-up" onSubmit={event => this.storeData(event)}>
         <input
           placeholder="Full Name"
           name="username"
@@ -71,6 +75,14 @@ export class SignUp extends Component {
           value={username}
           onChange={event => this.handleInput(event)}
           type="text"
+        />
+        <input
+          placeholder="Zip Code"
+          name="zipcode"
+          className="input zip-input"
+          value={zipcode}
+          onChange={event => this.handleInput(event)}
+          type="number"
         />
         <input
           placeholder="Email Address"
@@ -96,7 +108,7 @@ export class SignUp extends Component {
           onChange={event => this.handleInput(event)}
           type="password"
         />
-        <button type="submit" disabled={invalidUserInfo}>
+        <button className="sign-up-btn" type="submit" disabled={invalidUserInfo}>
           Sign Up
         </button>
 
