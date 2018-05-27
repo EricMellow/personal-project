@@ -3,7 +3,7 @@ import './Distance.css';
 
 const Distance = () => {
   return (
-    <div>
+    <div className="distance">
       LOOK AT ALL OF THESE EVENTS NEAR YOU!
     </div>
   );

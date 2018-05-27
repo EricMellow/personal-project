@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import './Landing.css'
+import './Landing.css';
 
 export class Landing extends Component {
   constructor(props) {
-    super(props)
-    this.state ={
+    super(props);
+    this.state = {
       zip: null
     };
   }
 
   handleInputChange = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
 
@@ -21,12 +21,12 @@ export class Landing extends Component {
     return (
       <div className="landing">
         <form className="landing-form">
-          <input 
+          <input
             name="zip"
             placeholder="Zip Code"
             className="zip"
             type="number"
-            value="this.state.zip"
+            value={this.state.zip}
             onChange={event => this.handleInputChange(event)}
           >
           </input>
