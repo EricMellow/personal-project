@@ -25,8 +25,8 @@ class Map extends Component {
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
       const mapConfig = Object.assign({}, {
-        center: { lat: 0, lng: 180 },
-        zoom: 2,
+        center: { lat: 39.7392, lng: -104.9903 },
+        zoom: 12,
         gestureHandling: "cooperative",
         mapTypeId: 'terrain'
       })
