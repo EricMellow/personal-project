@@ -18,6 +18,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+      "className": "distance",
     },
     "ref": null,
     "rendered": "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
@@ -30,6 +31,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+        "className": "distance",
       },
       "ref": null,
       "rendered": "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
