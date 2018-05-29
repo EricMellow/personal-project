@@ -32,7 +32,7 @@ class Map extends Component {
       });
 
       this.map = new maps.Map(node, mapConfig);
-      var mockActivitiesData = [{ lat: 39.730110, lng: -105.069302, duration: '1hr', type: 'basketball'}];
+      var mockActivitiesData = [{ lat: 39.730110, lng: -105.069302, duration: '1hr', type: 'basketball' }, { lat: 39.730110, lng: -104.9903, duration: '1hr', type: 'frolf' }];
       mockActivitiesData.map(activity => {
         const marker = new google.maps.Marker({
           position: { lat: activity.lat, lng: activity.lng },
@@ -46,7 +46,7 @@ class Map extends Component {
         marker.addListener('click', function () {
           infowindow.open(this.map, marker);
         });
-      })
+      });
     }
   }
   
