@@ -22,25 +22,25 @@ describe('Map', () => {
     });
   });
 
-  // describe('loadMap', () => {
-  //   let wrapper;
+  describe('loadMap', () => {
+    let wrapper;
 
-  //   beforeEach(() => {
-  //     const mockGoogle = {
-  //       maps: {
-  //         Map: jest.fn(),
-  //         Marker: jest.fn(),
-  //         InfoWindow: jest.fn()
-  //       }
-  //     };
-  //     wrapper = shallow(<Map google={mockGoogle}/>);
-  //   });
+    beforeEach(() => {
+      const mockGoogle = {
+        maps: {
+          Map: jest.fn(),
+          Marker: jest.fn(),
+          InfoWindow: jest.fn()
+        }
+      };
+      wrapper = shallow(<Map google={mockGoogle}/>);
+    });
 
-  //   it('should create a new Map with the correct arguments', () => {
-  //     global.document.addListener = jest.fn();
-  //     wrapper.instance().loadMap();
-  //     const result = wrapper.instance().props.google.maps.Map;
-  //     expect(result).toHaveBeenCalledWith('map', {});
-  //   });
-  // });
+    it('should create a new Map with the correct arguments', () => {
+      global.document.addListener = jest.fn();
+      wrapper.instance().loadMap();
+      const result = wrapper.instance().props.google.maps.Map;
+      expect(result).toHaveBeenCalledWith('map', {});
+    });
+  });
 });

@@ -36,10 +36,17 @@ export class SignUp extends Component {
   }
 
   storeData = async (event) => {
+    const {
+      email,
+      password,
+      username,
+      zipcode
+    } = this.state;
+
     event.preventDefault();
     try {
-      const authUser = await auth.doCreateUserWithEmailAndPassword(this.state.email, this.state.password);
-      await db.doCreateUser(authUser.user.uid, this.state.username, this.state.email, this.state.zipcode);
+      const authUser = await auth.doCreateUserWithEmailAndPassword(email, password);
+      await db.doCreateUser(authUser.user.uid, username, email, zipcode);
       this.resetState();
       this.props.storeUserId(authUser.user.uid);
       this.props.authenticate();
