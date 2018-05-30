@@ -26,10 +26,19 @@ export class CreateActivity extends Component {
       type,
       duration
     } = this.state;
-    
+
     event.preventDefault();
     const location = await this.getLocation();
     db.doCreateActivity(address, duration, location.lat, location.lng, type);
+    this.resetInputFields();
+  }
+
+  resetInputFields = () => {
+    this.setState({
+      address: '',
+      type: '',
+      duration: ''
+    });
   }
   
   getLocation = async () => {
