@@ -25,6 +25,11 @@ export class CreateActivity extends Component {
       duration
     } = this.state;
 
+    const formsFilled =
+      address === '' ||
+      type === '' ||
+      duration === '';
+
     return (
       <form className="create" onSubmit={event => this.storeData(event)}>
         <input
@@ -54,7 +59,7 @@ export class CreateActivity extends Component {
         <button
           type="submit"
           className="add-btn"
-          disabled={invalidUserInfo}
+          disabled={formsFilled}
         >
           Add Activity
         </button>
@@ -64,3 +69,5 @@ export class CreateActivity extends Component {
     );
   }
 }
+
+export default CreateActivity;

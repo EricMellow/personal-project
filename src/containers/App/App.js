@@ -7,6 +7,7 @@ import Distance from "../../components/Distance/Distance";
 import SignUp from "../SignUp/SignUp";
 import SignIn from "../SignIn/SignIn";
 import Tags from "../Tags/Tags";
+import CreateActivity from "../CreateActivity/CreateActivity"
 
 class App extends Component {
   render() {
@@ -33,6 +34,10 @@ class App extends Component {
           <Route
             exact path='/signin'
             component={SignIn}
+          />
+          <Route
+            exact path='/create'
+            component={CreateActivity}
           />
         </Switch>
       </div>
