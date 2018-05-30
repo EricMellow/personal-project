@@ -30,4 +30,15 @@ describe('Landing', () => {
       expect(wrapper.state('zip')).toEqual(80401)
     });
   });
+
+  describe('render', () => {
+    
+    it('should call handleInputChange onChange of the input', () => {
+      const wrapper = shallow(<Landing />)
+      wrapper.instance().handleInputChange = jest.fn()
+
+      wrapper.find('.zip').simulate('change')
+      expect(wrapper.instance().handleInputChange).toHaveBeenCalled()
+    });
+  });
 });
