@@ -54,6 +54,7 @@ describe('SignUp', () => {
         email: 'test@test.com',
         password: 'password',
         confirmPassword: 'password',
+        zipcode: 80401,
         error: null
       };
       await wrapper.setState(initialState);
@@ -62,6 +63,7 @@ describe('SignUp', () => {
         email: '',
         password: '',
         confirmPassword: '',
+        zipcode: undefined,
         error: null
       };
 
@@ -107,6 +109,7 @@ describe('SignUp', () => {
         email: 'test@test.com',
         password: 'password',
         confirmPassword: 'password',
+        zipcode: '80401',
         error: null
       };
       wrapper.setState(initialState);
@@ -115,6 +118,7 @@ describe('SignUp', () => {
         email: '',
         password: '',
         confirmPassword: '',
+        zipcode: undefined,
         error: null
       };
 
