@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './CreateActivity.css';
 import { firebaseKey } from "../../keys";
+import { db } from '../../firebase';
 
 export class CreateActivity extends Component {
   constructor(props) {
@@ -20,12 +21,19 @@ export class CreateActivity extends Component {
   }
 
   storeActivity = async (event) => {
+    const {
+      address,
+      type,
+      duration
+    } = this.state;
+    
     event.preventDefault();
     const location = await this.getLocation();
+    db.doCreateActivity(address, duration, location.lat, location.lng, type);
   }
   
   getLocation = async () => {
-    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.address}&key=${firebaseKey}`)
+    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.address}&key=${firebaseKey}`);
     const location = await response.json();
     return location.results[0].geometry.location;
   }
@@ -60,6 +68,7 @@ export class CreateActivity extends Component {
           onChange={event => this.handleInput(event)}
           type="text"
         />
+        <p>*Enter as address, city, state</p>
         <input
           placeholder="Duration"
           name="duration"
