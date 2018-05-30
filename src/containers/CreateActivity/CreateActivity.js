@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './CreateActivity.css';
+import { firebaseKey } from "../../keys";
 
 export class CreateActivity extends Component {
   constructor(props) {
@@ -18,6 +19,17 @@ export class CreateActivity extends Component {
     });
   }
 
+  storeActivity = async (event) => {
+    event.preventDefault();
+    const location = await this.getLocation();
+  }
+  
+  getLocation = async () => {
+    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.address}&key=${firebaseKey}`)
+    const location = await response.json();
+    return location.results[0].geometry.location;
+  }
+
   render() {
     const {
       type,
@@ -31,7 +43,7 @@ export class CreateActivity extends Component {
       duration === '';
 
     return (
-      <form className="create" onSubmit={event => this.storeData(event)}>
+      <form className="create" onSubmit={event => this.storeActivity(event)}>
         <input
           placeholder="Event Type"
           name="type"
