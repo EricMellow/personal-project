@@ -17,11 +17,25 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+      "children": Array [
+        <Wrapper />,
+        "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+      ],
       "className": "distance",
     },
     "ref": null,
-    "rendered": "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -30,11 +44,25 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+        "children": Array [
+          <Wrapper />,
+          "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+        ],
         "className": "distance",
       },
       "ref": null,
-      "rendered": "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "LOOK AT ALL OF THESE EVENTS NEAR YOU!",
+      ],
       "type": "div",
     },
   ],
