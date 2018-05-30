@@ -3,12 +3,19 @@ import './CreateActivity.css';
 
 export class CreateActivity extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       address: '',
       type: '',
       duration: ''
-    }
+    };
+  }
+
+  handleInput = (event) => {
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
   render() {
@@ -46,7 +53,7 @@ export class CreateActivity extends Component {
         />
         <button
           type="submit"
-          className="sign-in-btn"
+          className="add-btn"
           disabled={invalidUserInfo}
         >
           Add Activity
@@ -54,6 +61,6 @@ export class CreateActivity extends Component {
 
         {/* {error && <p>{error}</p>} */}
       </form>
-    )
+    );
   }
 }
