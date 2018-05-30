@@ -19,4 +19,32 @@ describe('CreateActivity', () => {
 
     expect(wrapper.state()).toEqual(expected)
   });
+
+  describe('handleInput', () => {
+    
+    it('should set the appropriate key in state with the event value', () => {
+      const wrapper = shallow(<CreateActivity />)
+      const mockEvent = {
+        preventDefault: jest.fn(),
+        target: {
+          name: 'type',
+          value: 'frolf'
+        }
+      }
+      const initialState = {
+        address: '',
+        type: '',
+        duration: ''
+      };
+      const expected = {
+        address: '',
+        type: 'frolf',
+        duration: ''
+      };
+
+      expect(wrapper.state()).toEqual(initialState)
+      wrapper.instance().handleInput(mockEvent)
+      expect(wrapper.state()).toEqual(expected)
+    });
+  });
 });
