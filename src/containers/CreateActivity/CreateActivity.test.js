@@ -2,6 +2,7 @@ import React from "react";
 import { CreateActivity } from "./CreateActivity";
 import { shallow } from "enzyme";
 import { db } from '../../firebase';
+import { firebaseKey } from "../../keys";
 
 
 describe('CreateActivity', () => {
@@ -89,38 +90,71 @@ describe('CreateActivity', () => {
         address: '221 B Baker St.',
         type: 'Investigation',
         duration: '16 hours'
-      }
+      };
       const expected = {
         address: '',
         type: '',
         duration: ''
       };
 
-      expect(wrapper.state()).toEqual(initialState)
-      await wrapper.instance().storeActivity(mockEvent)
-      expect(wrapper.state()).toEqual(expected)
+      expect(wrapper.state()).toEqual(initialState);
+      await wrapper.instance().storeActivity(mockEvent);
+      expect(wrapper.state()).toEqual(expected);
     });
   });
 
   describe('resetInputFields', () => {
     it('should reset state to its default state', () => {
-      const wrapper = shallow(<CreateActivity />)
+      const wrapper = shallow(<CreateActivity />);
       const initialState = {
         address: '221 B Baker St.',
         type: 'Investigation',
         duration: '16 hours'
-      }
+      };
       const expected = {
         address: '',
         type: '',
         duration: ''
       };
-      wrapper.setState(initialState)
+      wrapper.setState(initialState);
 
-      expect(wrapper.state()).toEqual(initialState)
-      wrapper.instance().resetInputFields()
-      expect(wrapper.state()).toEqual(expected)
+      expect(wrapper.state()).toEqual(initialState);
+      wrapper.instance().resetInputFields();
+      expect(wrapper.state()).toEqual(expected);
     });
   });
+
+  describe('getLocation', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<CreateActivity />);
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        json: () => Promise.resolve({
+          results: [{ geometry: { location: 'Lincoln, NE' } }]
+        })
+      }));
+      wrapper.setState({
+        address: '221 B Baker St.',
+        type: '',
+        duration: ''
+      });
+    });
+
+    it('should call fetch with the correct argument', async () => {
+      const expected = `https://maps.googleapis.com/maps/api/geocode/json?address=${wrapper.instance().state.address}&key=${firebaseKey}`;
+
+      await wrapper.instance().getLocation();
+      expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
+
+    it('should return the correct location info', async () => {
+      const expected = 'Lincoln, NE';
+
+      const result = await wrapper.instance().getLocation();
+      expect(result).toEqual(expected);
+    });
+  });
+
 
 });
