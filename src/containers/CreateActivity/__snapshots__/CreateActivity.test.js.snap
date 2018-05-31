@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateActivity should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CreateActivity />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <input
+          className="input type-input"
+          name="type"
+          onChange={[Function]}
+          placeholder="Event Type"
+          type="text"
+          value=""
+/>,
+        <input
+          className="input address-input"
+          name="address"
+          onChange={[Function]}
+          placeholder="Address"
+          type="text"
+          value=""
+/>,
+        <p>
+          *Enter as address, city, state
+</p>,
+        <input
+          className="input duration-input"
+          name="duration"
+          onChange={[Function]}
+          placeholder="Duration"
+          type="text"
+          value=""
+/>,
+        <button
+          className="add-btn"
+          disabled={true}
+          type="submit"
+>
+          Add Activity
+</button>,
+      ],
+      "className": "create",
+      "onSubmit": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "input type-input",
+          "name": "type",
+          "onChange": [Function],
+          "placeholder": "Event Type",
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "input address-input",
+          "name": "address",
+          "onChange": [Function],
+          "placeholder": "Address",
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "*Enter as address, city, state",
+        },
+        "ref": null,
+        "rendered": "*Enter as address, city, state",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "input duration-input",
+          "name": "duration",
+          "onChange": [Function],
+          "placeholder": "Duration",
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Add Activity",
+          "className": "add-btn",
+          "disabled": true,
+          "type": "submit",
+        },
+        "ref": null,
+        "rendered": "Add Activity",
+        "type": "button",
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <input
+            className="input type-input"
+            name="type"
+            onChange={[Function]}
+            placeholder="Event Type"
+            type="text"
+            value=""
+/>,
+          <input
+            className="input address-input"
+            name="address"
+            onChange={[Function]}
+            placeholder="Address"
+            type="text"
+            value=""
+/>,
+          <p>
+            *Enter as address, city, state
+</p>,
+          <input
+            className="input duration-input"
+            name="duration"
+            onChange={[Function]}
+            placeholder="Duration"
+            type="text"
+            value=""
+/>,
+          <button
+            className="add-btn"
+            disabled={true}
+            type="submit"
+>
+            Add Activity
+</button>,
+        ],
+        "className": "create",
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "input type-input",
+            "name": "type",
+            "onChange": [Function],
+            "placeholder": "Event Type",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "input address-input",
+            "name": "address",
+            "onChange": [Function],
+            "placeholder": "Address",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "*Enter as address, city, state",
+          },
+          "ref": null,
+          "rendered": "*Enter as address, city, state",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "input duration-input",
+            "name": "duration",
+            "onChange": [Function],
+            "placeholder": "Duration",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Add Activity",
+            "className": "add-btn",
+            "disabled": true,
+            "type": "submit",
+          },
+          "ref": null,
+          "rendered": "Add Activity",
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
