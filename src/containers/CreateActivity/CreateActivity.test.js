@@ -102,6 +102,25 @@ describe('CreateActivity', () => {
     });
   });
 
-  
+  describe('resetInputFields', () => {
+    it('should reset state to its default state', () => {
+      const wrapper = shallow(<CreateActivity />)
+      const initialState = {
+        address: '221 B Baker St.',
+        type: 'Investigation',
+        duration: '16 hours'
+      }
+      const expected = {
+        address: '',
+        type: '',
+        duration: ''
+      };
+      wrapper.setState(initialState)
+
+      expect(wrapper.state()).toEqual(initialState)
+      wrapper.instance().resetInputFields()
+      expect(wrapper.state()).toEqual(expected)
+    });
+  });
 
 });
