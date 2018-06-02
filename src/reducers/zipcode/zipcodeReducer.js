@@ -1,4 +1,4 @@
-const zipcodeReducer = (state = null, action) => {
+const zipcodeReducer = (state = 80204, action) => {
   switch (action.type) {
     case 'ADD_ZIPCODE':
       return action.zipcode;
