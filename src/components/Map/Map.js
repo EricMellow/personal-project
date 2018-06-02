@@ -12,12 +12,9 @@ class Map extends Component {
     super(props);
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevProps.google !== this.props.google || prevProps.quakes !== this.props.quakes) {
-  //     this.loadMap();
-  //   }
-  //   this.loadMap()
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    this.loadMap()
+  }
 
   componentDidMount() {
     firebase.db.ref('actions/').on('value', snapshot => this.props.storeActivities(snapshot.val()));
@@ -39,16 +36,18 @@ class Map extends Component {
       });
 
       this.map = new maps.Map(node, mapConfig);
-      var mockActivitiesData = [{ lat: 39.730110, lng: -105.069302, duration: '1hr', type: 'basketball' }, { lat: 39.730110, lng: -104.9903, duration: '1hr', type: 'frolf' }];
-      mockActivitiesData.map(activity => {
+      const activityKeys = Object.keys(this.props.activities)
+      console.log(activityKeys)
+      activityKeys.map(activity => {
+        const storeActivity = this.props.activities[activity]
         const marker = new google.maps.Marker({
-          position: { lat: activity.lat, lng: activity.lng },
+          position: { lat: storeActivity.lat, lng: storeActivity.lng },
           map: this.map,
-          title: activity.type
+          title: storeActivity.type
         });
         var infowindow = new google.maps.InfoWindow({
-          content: `<h3>${activity.type}</h3>
-          <h4>Duration: ${activity.duration}</h4>`
+          content: `<h3>${storeActivity.type}</h3>
+          <h4>Duration: ${storeActivity.duration}</h4>`
         });
         marker.addListener('click', function () {
           infowindow.open(this.map, marker);
@@ -67,8 +66,9 @@ class Map extends Component {
   }
 }
 
-const mapStateToProps = ({ zipcode }) => ({
-  zipcode
+const mapStateToProps = ({ zipcode, activities }) => ({
+  zipcode,
+  activities
 });
 
 const mapDispatchToProps = (dispatch) => ({
