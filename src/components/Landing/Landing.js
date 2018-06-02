@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import './Landing.css';
+import { connect } from "react-redux";
+import { addZipcode } from "../../actions/zipcodeActions";
 
 export class Landing extends Component {
   constructor(props) {
@@ -16,11 +18,16 @@ export class Landing extends Component {
     });
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.storeZipcode(this.state.zip);
+    
+  }
 
   render() {
     return (
       <div className="landing">
-        <form className="landing-form">
+        <form className="landing-form" onSubmit={event => this.handleSubmit(event)}>
           <input
             name="zip"
             placeholder="Zip Code"
@@ -37,4 +44,8 @@ export class Landing extends Component {
   }
 }
 
-export default Landing;
+const mapDispatchToProps = (dispatch) => ({
+  storeZipcode: (zipcode) => dispatch(addZipcode(zipcode))
+})
+
+export default connect(null, mapDispatchToProps)(Landing);
