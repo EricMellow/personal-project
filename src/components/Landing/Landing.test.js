@@ -70,6 +70,17 @@ describe('Landing', () => {
     });
   });
 
+  describe('resetState', () => {
+    
+    it('should reset the state to the default value', () => {
+      const wrapper = shallow(<Landing />)
+      wrapper.setState({ zip: 54321 })
+
+      expect(wrapper.state()).toEqual({ zip: 54321 })
+      wrapper.instance().resetState()
+      expect(wrapper.state()).toEqual({ zip: undefined })
+    });
+  });
   describe('render', () => {
     
     it('should call handleInputChange onChange of the input', () => {
