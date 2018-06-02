@@ -41,12 +41,6 @@ export class CreateActivity extends Component {
       duration: ''
     });
   }
-  
-  // getLocation = async () => {
-  //   const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.address}&key=${firebaseKey}`);
-  //   const location = await response.json();
-  //   return location.results[0].geometry.location;
-  // }
 
   render() {
     const {
