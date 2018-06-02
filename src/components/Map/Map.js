@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './Map.css';
 import { getLocation } from "../../apiCalls";
 import { connect } from "react-redux";
+import { db } from '../../firebase';
+import * as firebase from "../../firebase/firebase";
 
 class Map extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      activities: {}
+    }
   }
 
   // componentDidUpdate(prevProps, prevState) {
@@ -17,6 +22,7 @@ class Map extends Component {
   // }
 
   componentDidMount() {
+    firebase.db.ref('actions/').on('value', snapshot => this.setState({activities: snapshot.val()}))
     this.loadMap();
   }
 
@@ -27,7 +33,6 @@ class Map extends Component {
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
       const mapCenter = await getLocation(this.props.zipcode)
-      console.log(mapCenter)
       const mapConfig = Object.assign({}, {
         center: mapCenter,
         zoom: 12,

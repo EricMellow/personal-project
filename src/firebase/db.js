@@ -9,7 +9,7 @@ export const doCreateUser = (id, username, email, zipcode) =>
     zipcode
   });
 
-  export const doCreateActivity = (address, duration, lat, lng, type) => 
+export const doCreateActivity = (address, duration, lat, lng, type) => 
   db.ref('actions/').push({
     address,
     type,
@@ -17,6 +17,9 @@ export const doCreateUser = (id, username, email, zipcode) =>
     lat,
     lng
   })
+
+export const doGetAllActivities = () => 
+  db.ref('actions/').on('value', snapshot => snapshot.val())
 
 // export const onceGetUsers = () =>
 //   db.ref('users').once('value');
