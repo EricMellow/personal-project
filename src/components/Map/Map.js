@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import './Map.css';
+import { getLocation } from "../../apiCalls";
+import { connect } from "react-redux";
 
 class Map extends Component {
   constructor(props) {
@@ -18,17 +20,19 @@ class Map extends Component {
     this.loadMap();
   }
 
-  loadMap() {
+  loadMap = async () => {
     if (this.props.google) {
       const { google } = this.props;
       const maps = google.maps;
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
+      const mapCenter = await getLocation(this.props.zipcode)
+      console.log(mapCenter)
       const mapConfig = Object.assign({}, {
-        center: { lat: 39.7392, lng: -104.9903 },
+        center: mapCenter,
         zoom: 12,
         gestureHandling: "cooperative",
-        mapTypeId: 'terrain'
+        mapTypeId: 'roadmap'
       });
 
       this.map = new maps.Map(node, mapConfig);
@@ -60,4 +64,8 @@ class Map extends Component {
   }
 }
 
-export default Map;
+const mapStateToProps = ({zipcode}) =>({
+  zipcode
+})
+
+export default connect(mapStateToProps)(Map);
