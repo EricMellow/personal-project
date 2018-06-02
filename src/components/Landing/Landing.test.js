@@ -31,6 +31,45 @@ describe('Landing', () => {
     });
   });
 
+  describe('handleSubmit', () => {
+    let wrapper;
+    let mockStoreZip;
+    let mockEvent;
+    let mockHistory
+
+    beforeEach(() => {
+      mockStoreZip = jest.fn()
+      mockEvent = {preventDefault: jest.fn()}
+      mockHistory = {push: jest.fn()}
+      wrapper = shallow(<Landing storeZipcode={mockStoreZip} history={mockHistory}/>)
+    });
+
+    it('should call storeZipCode with the zip code in state', () => {
+      wrapper.setState({zip: 54321})
+
+      wrapper.instance().handleSubmit(mockEvent)
+
+      expect(wrapper.instance().props.storeZipcode).toHaveBeenCalledWith(54321)
+    });
+    
+    it('should call resetState', () => {
+      wrapper.instance().resetState = jest.fn()
+      wrapper.setState({ zip: 54321 })
+
+      wrapper.instance().handleSubmit(mockEvent)
+
+      expect(wrapper.instance().resetState).toHaveBeenCalled();
+    });
+
+    it('should call history.push', () => {
+      wrapper.setState({ zip: 54321 })
+
+      wrapper.instance().handleSubmit(mockEvent)
+
+      expect(wrapper.instance().props.history.push).toHaveBeenCalled()
+    });
+  });
+
   describe('render', () => {
     
     it('should call handleInputChange onChange of the input', () => {

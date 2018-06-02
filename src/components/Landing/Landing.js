@@ -52,7 +52,7 @@ export class Landing extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   storeZipcode: (zipcode) => dispatch(addZipcode(zipcode))
 })
 
