@@ -18,8 +18,5 @@ export const doCreateActivity = (address, duration, lat, lng, type) =>
     lng
   })
 
-export const doGetAllActivities = () => 
-  db.ref('actions/').on('value', snapshot => snapshot.val())
-
 // export const onceGetUsers = () =>
 //   db.ref('users').once('value');

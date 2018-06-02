@@ -5,13 +5,11 @@ import { getLocation } from "../../apiCalls";
 import { connect } from "react-redux";
 import { db } from '../../firebase';
 import * as firebase from "../../firebase/firebase";
+import { addActivities } from "../../actions/activitiesActions";
 
 class Map extends Component {
   constructor(props) {
-    super(props)
-    this.state = {
-      activities: {}
-    }
+    super(props);
   }
 
   // componentDidUpdate(prevProps, prevState) {
@@ -22,7 +20,7 @@ class Map extends Component {
   // }
 
   componentDidMount() {
-    firebase.db.ref('actions/').on('value', snapshot => this.setState({activities: snapshot.val()}))
+    firebase.db.ref('actions/').on('value', snapshot => this.props.storeActivities(snapshot.val()));
     this.loadMap();
   }
 
@@ -32,7 +30,7 @@ class Map extends Component {
       const maps = google.maps;
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
-      const mapCenter = await getLocation(this.props.zipcode)
+      const mapCenter = await getLocation(this.props.zipcode);
       const mapConfig = Object.assign({}, {
         center: mapCenter,
         zoom: 12,
@@ -58,19 +56,23 @@ class Map extends Component {
       });
     }
   }
-  
+
 
   render() {
     return (
       <div ref="map" className="map">
-      Loading map...
+        Loading map...
       </div>
     );
   }
 }
 
-const mapStateToProps = ({zipcode}) =>({
+const mapStateToProps = ({ zipcode }) => ({
   zipcode
-})
+});
 
-export default connect(mapStateToProps)(Map);
+const mapDispatchToProps = (dispatch) => ({
+  storeActivities: (activities) => dispatch(addActivities(activities))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
