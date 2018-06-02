@@ -90,6 +90,14 @@ describe('Landing', () => {
       wrapper.find('.zip').simulate('change')
       expect(wrapper.instance().handleInputChange).toHaveBeenCalled()
     });
+
+    it('should call handleSubmit onSubmit of the input', () => {
+      const wrapper = shallow(<Landing />)
+      wrapper.instance().handleSubmit = jest.fn()
+
+      wrapper.find('.landing-form').simulate('submit')
+      expect(wrapper.instance().handleSubmit).toHaveBeenCalled()
+    });
   });
 
   describe('mapDispatchToProps', () => {
