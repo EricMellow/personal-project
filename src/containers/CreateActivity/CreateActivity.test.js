@@ -77,8 +77,8 @@ describe('CreateActivity', () => {
     it('should call db.doCreateActivity with the correct arguments', async () => {
       const expectedAddress = '221 B Baker St.';
       const expectedDuration = '16 hours';
-      const expectedLat = 12345;
-      const expectedLng = 54321;
+      const expectedLat = 38.8372452;
+      const expectedLng = -97.617204;
       const expectedType = 'Investigation';
 
       await wrapper.instance().storeActivity(mockEvent);
@@ -121,38 +121,6 @@ describe('CreateActivity', () => {
       expect(wrapper.state()).toEqual(initialState);
       wrapper.instance().resetInputFields();
       expect(wrapper.state()).toEqual(expected);
-    });
-  });
-
-  describe('getLocation', () => {
-    let wrapper;
-
-    beforeEach(() => {
-      wrapper = shallow(<CreateActivity />);
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve({
-          results: [{ geometry: { location: 'Lincoln, NE' } }]
-        })
-      }));
-      wrapper.setState({
-        address: '221 B Baker St.',
-        type: '',
-        duration: ''
-      });
-    });
-
-    it('should call fetch with the correct argument', async () => {
-      const expected = `https://maps.googleapis.com/maps/api/geocode/json?address=${wrapper.instance().state.address}&key=${firebaseKey}`;
-
-      await wrapper.instance().getLocation();
-      expect(window.fetch).toHaveBeenCalledWith(expected);
-    });
-
-    it('should return the correct location info', async () => {
-      const expected = 'Lincoln, NE';
-
-      const result = await wrapper.instance().getLocation();
-      expect(result).toEqual(expected);
     });
   });
 

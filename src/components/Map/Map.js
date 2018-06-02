@@ -7,7 +7,7 @@ import { db } from '../../firebase';
 import * as firebase from "../../firebase/firebase";
 import { addActivities } from "../../actions/activitiesActions";
 
-class Map extends Component {
+export class Map extends Component {
   constructor(props) {
     super(props);
   }
@@ -66,12 +66,12 @@ class Map extends Component {
   }
 }
 
-const mapStateToProps = ({ zipcode, activities }) => ({
+export const mapStateToProps = ({ zipcode, activities }) => ({
   zipcode,
   activities
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   storeActivities: (activities) => dispatch(addActivities(activities))
 });
 
