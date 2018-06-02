@@ -32,7 +32,7 @@ class Map extends Component {
         center: mapCenter,
         zoom: 12,
         gestureHandling: "cooperative",
-        mapTypeId: 'terrain'
+        mapTypeId: 'roadmap'
       });
 
       this.map = new maps.Map(node, mapConfig);
