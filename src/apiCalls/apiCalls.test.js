@@ -7,10 +7,10 @@ describe('getLocation', () => {
   beforeEach(() => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       json: () => Promise.resolve({
-        results: [{ geometry: { location: 'Lincoln, NE' } }]
+        results: [{ geometry: { location: { lat: 38.8372452, lng: -97.617204 } } }]
       })
     }));
-    address = '221 B Baker St.';
+    address = '14019 West 5th Ave, Golden, CO';
   });
 
   it('should call fetch with the correct argument', async () => {
@@ -21,9 +21,9 @@ describe('getLocation', () => {
   });
 
   it('should return the correct location info', async () => {
-    const expected = 'Lincoln, NE';
+    const expected = { lat: 38.8372452, lng: -97.617204 };
 
-    const result = getLocation(address);
+    const result = await getLocation(address);
     expect(result).toEqual(expected);
   });
 });
