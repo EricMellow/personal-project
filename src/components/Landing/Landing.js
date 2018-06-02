@@ -21,7 +21,14 @@ export class Landing extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.storeZipcode(this.state.zip);
-    
+    this.resetState();
+    this.props.history.push('/distance');
+  }
+
+  resetState = () => {
+    this.setState({
+      zip: undefined
+    });
   }
 
   render() {
