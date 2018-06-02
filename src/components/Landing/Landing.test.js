@@ -1,4 +1,4 @@
-import { Landing } from "./Landing";
+import { Landing, mapDispatchToProps } from "./Landing";
 import { shallow } from "enzyme";
 import React from "react";
 
@@ -89,6 +89,22 @@ describe('Landing', () => {
 
       wrapper.find('.zip').simulate('change')
       expect(wrapper.instance().handleInputChange).toHaveBeenCalled()
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    
+    it('should map storeZipcode to props', () => {
+      const mockDispatch = jest.fn()
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockAction = {
+        type: 'ADD_ZIPCODE',
+        zipcode: 90210
+      };
+
+      mappedProps.storeZipcode(90210);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
   });
 });
