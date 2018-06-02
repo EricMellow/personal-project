@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import './Landing.css';
 import { connect } from "react-redux";
 import { addZipcode } from "../../actions/zipcodeActions";
+import { getLocation } from "../../apiCalls";
 
 export class Landing extends Component {
   constructor(props) {

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import './CreateActivity.css';
 import { firebaseKey } from "../../keys";
 import { db } from '../../firebase';
+import { getLocation } from "../../apiCalls";
 
 export class CreateActivity extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export class CreateActivity extends Component {
     } = this.state;
 
     event.preventDefault();
-    const location = await this.getLocation();
+    const location = await getLocation(this.state.address);
     db.doCreateActivity(address, duration, location.lat, location.lng, type);
     this.resetInputFields();
   }
@@ -41,11 +42,11 @@ export class CreateActivity extends Component {
     });
   }
   
-  getLocation = async () => {
-    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.address}&key=${firebaseKey}`);
-    const location = await response.json();
-    return location.results[0].geometry.location;
-  }
+  // getLocation = async () => {
+  //   const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.address}&key=${firebaseKey}`);
+  //   const location = await response.json();
+  //   return location.results[0].geometry.location;
+  // }
 
   render() {
     const {
