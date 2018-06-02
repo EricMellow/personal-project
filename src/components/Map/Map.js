@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import './Map.css';
-import { getLocation } from "../../apiCalls";
+import { getLocation } from "../../apiCalls/apiCalls";
 import { connect } from "react-redux";
 import { db } from '../../firebase';
 import * as firebase from "../../firebase/firebase";

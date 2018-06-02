@@ -1,4 +1,4 @@
-import { firebaseKey } from "./keys";
+import { firebaseKey } from "../keys";
 
 export const getLocation = async (address) => {
   const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${firebaseKey}`);

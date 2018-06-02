@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './CreateActivity.css';
 import { firebaseKey } from "../../keys";
 import { db } from '../../firebase';
-import { getLocation } from "../../apiCalls";
+import { getLocation } from "../../apiCalls/apiCalls";
 
 export class CreateActivity extends Component {
   constructor(props) {
