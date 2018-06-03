@@ -16,12 +16,12 @@ describe('authUserReducer', () => {
   it('should return false when passed an REMOVE_USER action', () => {
     const initialState = true;
     const mockAction = {
-      type: 'AUTHENTICATED_USER'
+      type: 'REMOVE_USER'
     };
 
     const result = authUserReducer(initialState, mockAction);
 
-    expect(result).toEqual(true);
+    expect(result).toEqual(false);
   });
 
   it('should return the initialState when passed an action not related to authenticating a user', () => {
