@@ -10,7 +10,8 @@ export class CreateActivity extends Component {
     this.state = {
       address: '',
       type: '',
-      duration: ''
+      duration: '',
+      message: false
     };
   }
 
@@ -33,8 +34,13 @@ export class CreateActivity extends Component {
     const time = Date.now()
     db.doCreateActivity(address, duration, location.lat, location.lng, type, time);
     this.resetInputFields();
+    this.setState({message: true})
+    window.setTimeout(this.removeMessage, 5000)
   }
 
+  removeMessage =() => {
+    this.setState({message: false})
+  }
   resetInputFields = () => {
     this.setState({
       address: '',
@@ -90,8 +96,7 @@ export class CreateActivity extends Component {
         >
           Add Activity
         </button>
-
-        {/* {error && <p>{error}</p>} */}
+        {this.state.message && <p className="message">Your activity has been added!</p>}
       </form>
     );
   }

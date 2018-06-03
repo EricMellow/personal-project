@@ -42,9 +42,12 @@ ShallowWrapper {
           name="duration"
           onChange={[Function]}
           placeholder="Duration"
-          type="text"
+          type="number"
           value=""
 />,
+        <p>
+          *Rounded to the nearest hour
+</p>,
         <button
           className="add-btn"
           disabled={true}
@@ -52,6 +55,7 @@ ShallowWrapper {
 >
           Add Activity
 </button>,
+        false,
       ],
       "className": "create",
       "onSubmit": [Function],
@@ -110,12 +114,23 @@ ShallowWrapper {
           "name": "duration",
           "onChange": [Function],
           "placeholder": "Duration",
-          "type": "text",
+          "type": "number",
           "value": "",
         },
         "ref": null,
         "rendered": null,
         "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "*Rounded to the nearest hour",
+        },
+        "ref": null,
+        "rendered": "*Rounded to the nearest hour",
+        "type": "p",
       },
       Object {
         "instance": null,
@@ -131,6 +146,7 @@ ShallowWrapper {
         "rendered": "Add Activity",
         "type": "button",
       },
+      false,
     ],
     "type": "form",
   },
@@ -165,9 +181,12 @@ ShallowWrapper {
             name="duration"
             onChange={[Function]}
             placeholder="Duration"
-            type="text"
+            type="number"
             value=""
 />,
+          <p>
+            *Rounded to the nearest hour
+</p>,
           <button
             className="add-btn"
             disabled={true}
@@ -175,6 +194,7 @@ ShallowWrapper {
 >
             Add Activity
 </button>,
+          false,
         ],
         "className": "create",
         "onSubmit": [Function],
@@ -233,12 +253,23 @@ ShallowWrapper {
             "name": "duration",
             "onChange": [Function],
             "placeholder": "Duration",
-            "type": "text",
+            "type": "number",
             "value": "",
           },
           "ref": null,
           "rendered": null,
           "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "*Rounded to the nearest hour",
+          },
+          "ref": null,
+          "rendered": "*Rounded to the nearest hour",
+          "type": "p",
         },
         Object {
           "instance": null,
@@ -254,6 +285,7 @@ ShallowWrapper {
           "rendered": "Add Activity",
           "type": "button",
         },
+        false,
       ],
       "type": "form",
     },
