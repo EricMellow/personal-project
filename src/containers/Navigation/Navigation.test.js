@@ -29,7 +29,7 @@ describe('Navigation', () => {
       auth.doSignOut = jest.fn();
       mockRemoveId = jest.fn();
       mockRemoveUser = jest.fn();
-      wrapper = shallow(<AuthNavigation 
+      wrapper = shallow(<Navigation 
         removeId={mockRemoveId}
         removeUser={mockRemoveUser}
       />);
