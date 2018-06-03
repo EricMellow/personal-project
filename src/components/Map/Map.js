@@ -13,7 +13,7 @@ export class Map extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.loadMap()
+    this.loadMap();
   }
 
   componentDidMount() {
@@ -36,10 +36,9 @@ export class Map extends Component {
       });
 
       this.map = new maps.Map(node, mapConfig);
-      const activityKeys = Object.keys(this.props.activities)
-      console.log(activityKeys)
+      const activityKeys = Object.keys(this.props.activities);
       activityKeys.map(activity => {
-        const storeActivity = this.props.activities[activity]
+        const storeActivity = this.props.activities[activity];
         const marker = new google.maps.Marker({
           position: { lat: storeActivity.lat, lng: storeActivity.lng },
           map: this.map,

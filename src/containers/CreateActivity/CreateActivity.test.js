@@ -124,5 +124,40 @@ describe('CreateActivity', () => {
     });
   });
 
+  describe('render', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<CreateActivity />)
+    });
+    
+    it('should call storeActivity onSubmit of the form', () => {
+      wrapper.instance().storeActivity = jest.fn()
+
+      wrapper.find('.create').simulate('submit')
+      expect(wrapper.instance().storeActivity).toHaveBeenCalled()
+    });
+
+    it('should call handleInput onChange of the type input', () => {
+      wrapper.instance().handleInput = jest.fn()
+
+      wrapper.find('.type-input').simulate('change')
+      expect(wrapper.instance().handleInput).toHaveBeenCalled()
+    });
+
+    it('should call handleInput onChange of the address input', () => {
+      wrapper.instance().handleInput = jest.fn()
+
+      wrapper.find('.address-input').simulate('change')
+      expect(wrapper.instance().handleInput).toHaveBeenCalled()
+    });
+
+    it('should call handleInput onChange of the duration input', () => {
+      wrapper.instance().handleInput = jest.fn()
+
+      wrapper.find('.duration-input').simulate('change')
+      expect(wrapper.instance().handleInput).toHaveBeenCalled()
+    });
+  });
 
 });
