@@ -22,7 +22,7 @@ ShallowWrapper {
           className="input name-input"
           name="username"
           onChange={[Function]}
-          placeholder="Full Name"
+          placeholder="Username"
           type="text"
           value=""
 />,
@@ -80,7 +80,7 @@ ShallowWrapper {
           "className": "input name-input",
           "name": "username",
           "onChange": [Function],
-          "placeholder": "Full Name",
+          "placeholder": "Username",
           "type": "text",
           "value": "",
         },
@@ -181,7 +181,7 @@ ShallowWrapper {
             className="input name-input"
             name="username"
             onChange={[Function]}
-            placeholder="Full Name"
+            placeholder="Username"
             type="text"
             value=""
 />,
@@ -239,7 +239,7 @@ ShallowWrapper {
             "className": "input name-input",
             "name": "username",
             "onChange": [Function],
-            "placeholder": "Full Name",
+            "placeholder": "Username",
             "type": "text",
             "value": "",
           },
