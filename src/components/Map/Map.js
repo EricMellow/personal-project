@@ -41,7 +41,7 @@ export class Map extends Component {
         const activityKeys = Object.keys(this.props.activities);
         activityKeys.map((activity, index) => {
           const deleteMe = this.props.activities[activity].duration * 3600000;
-          console.log(Date.now() - this.props.activities[activity].time)
+      
           if (Date.now() - this.props.activities[activity].time < deleteMe) {
             const storeActivity = this.props.activities[activity];
             const marker = new google.maps.Marker({
@@ -57,9 +57,8 @@ export class Map extends Component {
               infowindow.open(this.map, marker);
             });
           } else {
-            firebase.db.ref(`actions/${activityKeys[index]}`).remove(error => console.log(error))
+            firebase.db.ref(`actions/${activityKeys[index]}`).remove((error) => error)
           }
-          console.log(this.props.activities)
         });
       }
     }
