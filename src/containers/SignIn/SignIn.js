@@ -4,6 +4,8 @@ import { auth } from '../../firebase';
 import { connect } from 'react-redux';
 import { authenticateUser } from "../../actions/authenticateUser";
 import { addUserId } from "../../actions/userIdActions";
+import { addZipcode } from "../../actions/zipcodeActions";
+import * as firebase from "../../firebase/firebase";
 
 export class SignIn extends Component {
   constructor(props) {
@@ -36,6 +38,8 @@ export class SignIn extends Component {
       this.props.storeUserId(authUser.user.uid);
       this.resetState();
       this.props.authenticate();
+      firebase.db.ref(`users/${authUser.user.uid}`).once('value')
+        .then(snapshot => this.props.storeZipcode(snapshot.val().zipcode));
       this.props.history.push('/distance');
     } catch (error) {
       this.setState({ error: error.message });
@@ -87,7 +91,8 @@ export class SignIn extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
   authenticate: () => dispatch(authenticateUser()),
-  storeUserId: (userId) => dispatch(addUserId(userId))
+  storeUserId: (userId) => dispatch(addUserId(userId)),
+  storeZipcode: (zipcode) => dispatch(addZipcode(zipcode))
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);
