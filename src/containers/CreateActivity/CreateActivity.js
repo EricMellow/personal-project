@@ -10,7 +10,7 @@ export class CreateActivity extends Component {
     this.state = {
       address: '',
       type: '',
-      duration: undefined
+      duration: ''
     };
   }
 
