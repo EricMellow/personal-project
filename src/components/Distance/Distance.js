@@ -5,8 +5,7 @@ import MapContainer from "../../containers/MapContainer/MapContainer";
 const Distance = () => {
   return (
     <div className="distance">
-    <MapContainer />
-      LOOK AT ALL OF THESE EVENTS NEAR YOU!
+      <MapContainer />
     </div>
   );
 };

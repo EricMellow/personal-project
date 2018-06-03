@@ -21,7 +21,7 @@ export const AuthNavigation = () => {
       <NavLink 
         to="/tags" 
         className="nav-button">
-        Tags
+        Type
       </NavLink>
       <NavLink 
         to="/create" 
@@ -37,11 +37,6 @@ export const AuthNavigation = () => {
         }} 
         className="nav-button sign-out">
         Sign Out
-      </NavLink>
-      <NavLink 
-        to="/account" 
-        className="nav-button">
-        Account
       </NavLink>
     </div>
   );

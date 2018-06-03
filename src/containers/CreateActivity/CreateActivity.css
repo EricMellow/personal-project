@@ -30,6 +30,12 @@ align-items: center;
   margin: 20px;
 }
 
+.add-btn:disabled {
+  color: #757575;
+  background: rgba(17, 17, 17, 0.15);
+  border: 2px solid #757575;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }

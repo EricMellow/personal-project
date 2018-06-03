@@ -76,7 +76,7 @@ export class SignUp extends Component {
     return (
       <form className="sign-up" onSubmit={event => this.storeData(event)}>
         <input
-          placeholder="Full Name"
+          placeholder="Username"
           name="username"
           className="input name-input"
           value={username}
