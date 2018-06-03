@@ -10,7 +10,7 @@ export class CreateActivity extends Component {
     this.state = {
       address: '',
       type: '',
-      duration: ''
+      duration: undefined
     };
   }
 
@@ -30,7 +30,8 @@ export class CreateActivity extends Component {
 
     event.preventDefault();
     const location = await getLocation(this.state.address);
-    db.doCreateActivity(address, duration, location.lat, location.lng, type);
+    const time = Date.now()
+    db.doCreateActivity(address, duration, location.lat, location.lng, type, time);
     this.resetInputFields();
   }
 
@@ -79,8 +80,9 @@ export class CreateActivity extends Component {
           className="input duration-input"
           value={duration}
           onChange={event => this.handleInput(event)}
-          type="text"
+          type="number"
         />
+        <p>*Rounded to the nearest hour</p>
         <button
           type="submit"
           className="add-btn"
