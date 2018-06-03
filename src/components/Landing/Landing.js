@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './Landing.css';
 import { connect } from "react-redux";
 import { addZipcode } from "../../actions/zipcodeActions";
-import { getLocation } from "../../apiCalls";
+import { getLocation } from "../../apiCalls/apiCalls";
 
 export class Landing extends Component {
   constructor(props) {
@@ -52,7 +52,7 @@ export class Landing extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   storeZipcode: (zipcode) => dispatch(addZipcode(zipcode))
 })
 

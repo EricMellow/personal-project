@@ -77,8 +77,8 @@ describe('CreateActivity', () => {
     it('should call db.doCreateActivity with the correct arguments', async () => {
       const expectedAddress = '221 B Baker St.';
       const expectedDuration = '16 hours';
-      const expectedLat = 12345;
-      const expectedLng = 54321;
+      const expectedLat = 38.8372452;
+      const expectedLng = -97.617204;
       const expectedType = 'Investigation';
 
       await wrapper.instance().storeActivity(mockEvent);
@@ -124,37 +124,40 @@ describe('CreateActivity', () => {
     });
   });
 
-  describe('getLocation', () => {
+  describe('render', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallow(<CreateActivity />);
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        json: () => Promise.resolve({
-          results: [{ geometry: { location: 'Lincoln, NE' } }]
-        })
-      }));
-      wrapper.setState({
-        address: '221 B Baker St.',
-        type: '',
-        duration: ''
-      });
+      wrapper = shallow(<CreateActivity />)
+    });
+    
+    it('should call storeActivity onSubmit of the form', () => {
+      wrapper.instance().storeActivity = jest.fn()
+
+      wrapper.find('.create').simulate('submit')
+      expect(wrapper.instance().storeActivity).toHaveBeenCalled()
     });
 
-    it('should call fetch with the correct argument', async () => {
-      const expected = `https://maps.googleapis.com/maps/api/geocode/json?address=${wrapper.instance().state.address}&key=${firebaseKey}`;
+    it('should call handleInput onChange of the type input', () => {
+      wrapper.instance().handleInput = jest.fn()
 
-      await wrapper.instance().getLocation();
-      expect(window.fetch).toHaveBeenCalledWith(expected);
+      wrapper.find('.type-input').simulate('change')
+      expect(wrapper.instance().handleInput).toHaveBeenCalled()
     });
 
-    it('should return the correct location info', async () => {
-      const expected = 'Lincoln, NE';
+    it('should call handleInput onChange of the address input', () => {
+      wrapper.instance().handleInput = jest.fn()
 
-      const result = await wrapper.instance().getLocation();
-      expect(result).toEqual(expected);
+      wrapper.find('.address-input').simulate('change')
+      expect(wrapper.instance().handleInput).toHaveBeenCalled()
+    });
+
+    it('should call handleInput onChange of the duration input', () => {
+      wrapper.instance().handleInput = jest.fn()
+
+      wrapper.find('.duration-input').simulate('change')
+      expect(wrapper.instance().handleInput).toHaveBeenCalled()
     });
   });
-
 
 });

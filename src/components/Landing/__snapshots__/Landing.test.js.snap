@@ -19,6 +19,7 @@ ShallowWrapper {
     "props": Object {
       "children": <form
         className="landing-form"
+        onSubmit={[Function]}
 >
         <input
                 className="zip"
@@ -54,6 +55,7 @@ ShallowWrapper {
 </h3>,
         ],
         "className": "landing-form",
+        "onSubmit": [Function],
       },
       "ref": null,
       "rendered": Array [
@@ -97,6 +99,7 @@ ShallowWrapper {
       "props": Object {
         "children": <form
           className="landing-form"
+          onSubmit={[Function]}
 >
           <input
                     className="zip"
@@ -132,6 +135,7 @@ ShallowWrapper {
 </h3>,
           ],
           "className": "landing-form",
+          "onSubmit": [Function],
         },
         "ref": null,
         "rendered": Array [

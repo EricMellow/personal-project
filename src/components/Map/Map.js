@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import './Map.css';
-import { getLocation } from "../../apiCalls";
+import { getLocation } from "../../apiCalls/apiCalls";
 import { connect } from "react-redux";
 import { db } from '../../firebase';
 import * as firebase from "../../firebase/firebase";
 import { addActivities } from "../../actions/activitiesActions";
 
-class Map extends Component {
+export class Map extends Component {
   constructor(props) {
     super(props);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.loadMap()
+    this.loadMap();
   }
 
   componentDidMount() {
@@ -36,10 +36,9 @@ class Map extends Component {
       });
 
       this.map = new maps.Map(node, mapConfig);
-      const activityKeys = Object.keys(this.props.activities)
-      console.log(activityKeys)
+      const activityKeys = Object.keys(this.props.activities);
       activityKeys.map(activity => {
-        const storeActivity = this.props.activities[activity]
+        const storeActivity = this.props.activities[activity];
         const marker = new google.maps.Marker({
           position: { lat: storeActivity.lat, lng: storeActivity.lng },
           map: this.map,
@@ -66,12 +65,12 @@ class Map extends Component {
   }
 }
 
-const mapStateToProps = ({ zipcode, activities }) => ({
+export const mapStateToProps = ({ zipcode, activities }) => ({
   zipcode,
   activities
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   storeActivities: (activities) => dispatch(addActivities(activities))
 });
 
