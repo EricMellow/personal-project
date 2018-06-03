@@ -36,22 +36,31 @@ export class Map extends Component {
       });
 
       this.map = new maps.Map(node, mapConfig);
-      const activityKeys = Object.keys(this.props.activities);
-      activityKeys.map(activity => {
-        const storeActivity = this.props.activities[activity];
-        const marker = new google.maps.Marker({
-          position: { lat: storeActivity.lat, lng: storeActivity.lng },
-          map: this.map,
-          title: storeActivity.type
+      
+      if (this.props.activities) {
+        const activityKeys = Object.keys(this.props.activities);
+        activityKeys.map((activity, index) => {
+          const deleteMe = this.props.activities[activity].duration * 3600000;
+      
+          if (Date.now() - this.props.activities[activity].time < deleteMe) {
+            const storeActivity = this.props.activities[activity];
+            const marker = new google.maps.Marker({
+              position: { lat: storeActivity.lat, lng: storeActivity.lng },
+              map: this.map,
+              title: storeActivity.type
+            });
+            var infowindow = new google.maps.InfoWindow({
+              content: `<h3>${storeActivity.type}</h3>
+              <h4>Duration: ${storeActivity.duration}</h4>`
+            });
+            marker.addListener('click', function () {
+              infowindow.open(this.map, marker);
+            });
+          } else {
+            firebase.db.ref(`actions/${activityKeys[index]}`).remove((error) => error)
+          }
         });
-        var infowindow = new google.maps.InfoWindow({
-          content: `<h3>${storeActivity.type}</h3>
-          <h4>Duration: ${storeActivity.duration}</h4>`
-        });
-        marker.addListener('click', function () {
-          infowindow.open(this.map, marker);
-        });
-      });
+      }
     }
   }
 

@@ -7,7 +7,7 @@ import Distance from "../../components/Distance/Distance";
 import SignUp from "../SignUp/SignUp";
 import SignIn from "../SignIn/SignIn";
 import Tags from "../Tags/Tags";
-import CreateActivity from "../CreateActivity/CreateActivity"
+import CreateActivity from "../CreateActivity/CreateActivity";
 
 class App extends Component {
   render() {
