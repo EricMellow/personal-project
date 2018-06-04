@@ -20,18 +20,20 @@ export class Tags extends Component {
   render() {
 
     return (
-      <div className="tags">
-        <form>
-          <input
-            placeholder="Search for a type of activity"
-            name="type"
-            className="input type-input"
-            value={this.state.type}
-            onChange={event => this.handleInput(event)}
-            type="text"
-          />
-        </form>
-        <MapContainer type={this.state.type} />
+      <div className="tags ">
+        <div className="tags-style" >
+          <form className="tags-form">
+            <input
+              placeholder="Search for a type of activity"
+              name="type"
+              className="input type-input"
+              value={this.state.type}
+              onChange={event => this.handleInput(event)}
+              type="text"
+            />
+          </form>
+          <MapContainer type={this.state.type} />
+        </div>
       </div>
     );
   }
