@@ -65,42 +65,44 @@ export class CreateActivity extends Component {
       duration === '';
 
     return (
-      <form className="create" onSubmit={event => this.storeActivity(event)}>
-        <input
-          placeholder="Event Type"
-          name="type"
-          className="input type-input"
-          value={type}
-          onChange={event => this.handleInput(event)}
-          type="text"
-        />
-        <input
-          placeholder="Address"
-          name="address"
-          className="input address-input"
-          value={address}
-          onChange={event => this.handleInput(event)}
-          type="text"
-        />
-        <p>*Enter as address, city, state</p>
-        <input
-          placeholder="Duration"
-          name="duration"
-          className="input duration-input"
-          value={duration}
-          onChange={event => this.handleInput(event)}
-          type="number"
-        />
-        <p>*Rounded to the nearest hour</p>
-        <button
-          type="submit"
-          className="add-btn"
-          disabled={formsFilled}
-        >
-          Add Activity
-        </button>
-        {this.state.message && <p className="message">Your activity has been added!</p>}
-      </form>
+      <div className="create">
+        <form className="create-form" onSubmit={event => this.storeActivity(event)}>
+          <input
+            placeholder="Event Type"
+            name="type"
+            className="input type-input"
+            value={type}
+            onChange={event => this.handleInput(event)}
+            type="text"
+          />
+          <input
+            placeholder="Address"
+            name="address"
+            className="input address-input"
+            value={address}
+            onChange={event => this.handleInput(event)}
+            type="text"
+          />
+          <p>*Enter as address, city, state</p>
+          <input
+            placeholder="Duration"
+            name="duration"
+            className="input duration-input"
+            value={duration}
+            onChange={event => this.handleInput(event)}
+            type="number"
+          />
+          <p>*Rounded to the nearest hour</p>
+          <button
+            type="submit"
+            className="add-btn"
+            disabled={formsFilled}
+          >
+            Add Activity
+          </button>
+          {this.state.message && <p className="message">Your activity has been added!</p>}
+        </form>
+      </div>
     );
   }
 }
