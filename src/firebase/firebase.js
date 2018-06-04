@@ -1,7 +1,8 @@
 import { firebaseKey } from '../keys';
 import * as firebase from 'firebase';
 const key = firebaseKey;
-// Initialize Firebase
+
+
 var config = {
   apiKey: key,
   authDomain: "team-up-205121.firebaseapp.com",

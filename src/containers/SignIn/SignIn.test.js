@@ -76,12 +76,12 @@ describe('SignIn', () => {
       mockHistory = { push: jest.fn() };
       mockAuth = jest.fn();
       mockStoreId = jest.fn();
-      wrapper = shallow(<SignIn 
+      wrapper = shallow(<SignIn
         history={mockHistory}
         storeUserId={mockStoreId}
         authenticate={mockAuth}
       />);
-      auth.doSignInWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({user: {uid: 12345}}));
+      auth.doSignInWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({ user: { uid: 12345 } }));
     });
 
     it('should call doSignInWithEmailAndPassword with the correct arguments', () => {
@@ -149,7 +149,7 @@ describe('SignIn', () => {
   });
 
   describe('mapDispatchToProps', () => {
-    
+
     it('should call dispatch on authenticateUser with the correct arguments', () => {
       const mockDispatch = jest.fn();
       const mappedProps = mapDispatchToProps(mockDispatch);
@@ -170,7 +170,7 @@ describe('SignIn', () => {
       };
 
       mappedProps.storeUserId('abc123');
-      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
 
     it('should call dispatch on addZipcode with the correct arguments', () => {
@@ -182,7 +182,7 @@ describe('SignIn', () => {
       };
 
       mappedProps.storeZipcode(90210);
-      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
   });
 

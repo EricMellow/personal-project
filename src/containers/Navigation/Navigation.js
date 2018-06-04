@@ -30,12 +30,13 @@ export const AuthNavigation = () => {
       </NavLink>
       <NavLink 
         to="/" 
+        className="nav-button sign-out"
         onClick={() => {
           auth.doSignOut();
           this.props.removeId();
           this.props.removeUser();
         }} 
-        className="nav-button sign-out">
+      >
         Sign Out
       </NavLink>
     </div>
