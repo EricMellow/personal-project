@@ -172,6 +172,18 @@ describe('SignIn', () => {
       mappedProps.storeUserId('abc123');
       expect(mockDispatch).toHaveBeenCalledWith(mockAction)
     });
+
+    it('should call dispatch on addZipcode with the correct arguments', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'ADD_ZIPCODE',
+        zipcode: 90210
+      };
+
+      mappedProps.storeZipcode(90210);
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+    });
   });
 
 });
