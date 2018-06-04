@@ -26,7 +26,7 @@ export class Tags extends Component {
             <input
               placeholder="Search for a type of activity"
               name="type"
-              className="input type-input"
+              className="input add-type-input"
               value={this.state.type}
               onChange={event => this.handleInput(event)}
               type="text"
