@@ -16,15 +16,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 60%;
+  height: 55%;
 }
 
 .input {
   background: none;
   height: 3rem;
-  border: 2px solid #ecb429;
-  width: 30rem;
-  color: #ecb429;
+  border: 3px solid white;
+  width: 75%;
+  color: white;
   padding-left: 10px;
   margin: 20px;
   font-size: 2rem;

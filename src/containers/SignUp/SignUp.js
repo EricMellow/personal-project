@@ -76,53 +76,55 @@ export class SignUp extends Component {
       zipcode === null;
 
     return (
-      <form className="sign-up" onSubmit={event => this.storeData(event)}>
-        <input
-          placeholder="Username"
-          name="username"
-          className="input name-input"
-          value={username}
-          onChange={event => this.handleInput(event)}
-          type="text"
-        />
-        <input
-          placeholder="Zip Code"
-          name="zipcode"
-          className="input zip-input"
-          value={zipcode}
-          onChange={event => this.handleInput(event)}
-          type="number"
-        />
-        <input
-          placeholder="Email Address"
-          name="email"
-          className="input email-input"
-          value={email}
-          onChange={event => this.handleInput(event)}
-          type="text"
-        />
-        <input
-          placeholder="Password"
-          name="password"
-          className="input password-input"
-          value={password}
-          onChange={event => this.handleInput(event)}
-          type="password"
-        />
-        <input
-          placeholder="Confirm Password"
-          name="confirmPassword"
-          className="input confirm-input"
-          value={confirmPassword}
-          onChange={event => this.handleInput(event)}
-          type="password"
-        />
-        <button className="sign-up-btn" type="submit" disabled={invalidUserInfo}>
-          Sign Up
-        </button>
+      <div className="sign-up">
+        <form className="sign-up-form" onSubmit={event => this.storeData(event)}>
+          <input
+            placeholder="Username"
+            name="username"
+            className="input name-input"
+            value={username}
+            onChange={event => this.handleInput(event)}
+            type="text"
+          />
+          <input
+            placeholder="Zip Code"
+            name="zipcode"
+            className="input zip-input"
+            value={zipcode}
+            onChange={event => this.handleInput(event)}
+            type="number"
+          />
+          <input
+            placeholder="Email Address"
+            name="email"
+            className="input email-input"
+            value={email}
+            onChange={event => this.handleInput(event)}
+            type="text"
+          />
+          <input
+            placeholder="Password"
+            name="password"
+            className="input password-input"
+            value={password}
+            onChange={event => this.handleInput(event)}
+            type="password"
+          />
+          <input
+            placeholder="Confirm Password"
+            name="confirmPassword"
+            className="input confirm-input"
+            value={confirmPassword}
+            onChange={event => this.handleInput(event)}
+            type="password"
+          />
+          <button className="sign-up-btn" type="submit" disabled={invalidUserInfo}>
+            Sign Up
+          </button>
 
-        {error && <p>{error}</p>}
-      </form>
+          {error && <p>{error}</p>}
+        </form>
+      </div>
     );
   }
 }

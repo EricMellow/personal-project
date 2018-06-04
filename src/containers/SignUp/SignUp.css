@@ -9,12 +9,22 @@
   background-size: cover;
 }
 
+.sign-up-form {
+  background-color: rgba(28, 141, 196, .9);
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+}
+
 .input {
   background: none;
   height: 3rem;
-  border: 2px solid #ecb429;
-  width: 30rem;
-  color: #ecb429;
+  border: 3px solid white;
+  width: 75%;
+  color: white;
   padding-left: 10px;
   margin: 20px;
   font-size: 2rem;
@@ -23,21 +33,27 @@
 
 .sign-up-btn {
   height: 3rem;
-  width: 30rem;
+  width: 75%;
   border-radius: 5px;
   font-size: 2rem;
-  color: #ecb429;
+  color: white;
   background: none;
-  border: 2px solid #ecb429;
+  border: 2px solid white;
   margin: 20px;
 }
 
 .sign-up-btn:disabled {
-  color: #757575;
-  background: rgba(17, 17, 17, 0.15);
-  border: 2px solid #757575;
+  color: rgb(67, 119, 144);
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgb(67, 119, 144);
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+form p {
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
 }
