@@ -4,6 +4,7 @@ import { auth, db } from '../../firebase';
 import { connect } from 'react-redux';
 import { authenticateUser } from "../../actions/authenticateUser";
 import { addUserId } from "../../actions/userIdActions";
+import { addZipcode } from "../../actions/zipcodeActions";
 
 export class SignUp extends Component {
   constructor(props) {
@@ -47,10 +48,11 @@ export class SignUp extends Component {
     try {
       const authUser = await auth.doCreateUserWithEmailAndPassword(email, password);
       await db.doCreateUser(authUser.user.uid, username, email, zipcode);
-      this.resetState();
       this.props.storeUserId(authUser.user.uid);
       this.props.authenticate();
-      this.props.history.push('/');
+      this.props.storeZipcode(this.state.zipcode)
+      this.resetState();
+      this.props.history.push('/distance');
     } catch (error) {
       this.setState({ error: error.message });
     }
@@ -127,7 +129,8 @@ export class SignUp extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
   authenticate: () => dispatch(authenticateUser()),
-  storeUserId: (userId) => dispatch(addUserId(userId))
+  storeUserId: (userId) => dispatch(addUserId(userId)),
+  storeZipcode: (zipcode) => dispatch(addZipcode(zipcode))
 });
 
 
