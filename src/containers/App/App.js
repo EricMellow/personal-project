@@ -9,7 +9,7 @@ import SignIn from "../SignIn/SignIn";
 import Tags from "../Tags/Tags";
 import CreateActivity from "../CreateActivity/CreateActivity";
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="App">

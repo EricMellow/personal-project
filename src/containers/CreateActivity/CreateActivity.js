@@ -31,21 +31,23 @@ export class CreateActivity extends Component {
 
     event.preventDefault();
     const location = await getLocation(this.state.address);
-    const time = Date.now()
+    const time = Date.now();
     db.doCreateActivity(address, duration, location.lat, location.lng, type, time);
     this.resetInputFields();
-    this.setState({message: true})
-    window.setTimeout(this.removeMessage, 5000)
+    this.setState({ message: true });
+    window.setTimeout(this.removeMessage, 5000);
   }
 
-  removeMessage =() => {
-    this.setState({message: false})
+  removeMessage = () => {
+    this.setState({ message: false });
   }
+
   resetInputFields = () => {
     this.setState({
       address: '',
       type: '',
-      duration: ''
+      duration: '',
+      message: false
     });
   }
 

@@ -35,4 +35,11 @@ describe('authUserReducer', () => {
     expect(result).toEqual(initialState);
   });
 
+  it('should return false as a default state', () => {
+    const mockActivity = { type: 'ADD_ZIPCODE' };
+    const result = authUserReducer(undefined, mockActivity);
+
+    expect(result).toEqual(false);
+  });
+
 });

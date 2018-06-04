@@ -18,6 +18,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "google": undefined,
+      "type": undefined,
     },
     "ref": null,
     "rendered": null,
@@ -30,6 +31,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "google": undefined,
+        "type": undefined,
       },
       "ref": null,
       "rendered": null,

@@ -17,7 +17,8 @@ describe('CreateActivity', () => {
     const expected = {
       address: '',
       type: '',
-      duration: ''
+      duration: '',
+      message: false
     };
 
     expect(wrapper.state()).toEqual(expected);
@@ -37,12 +38,14 @@ describe('CreateActivity', () => {
       const initialState = {
         address: '',
         type: '',
-        duration: ''
+        duration: '',
+        message: false
       };
       const expected = {
         address: '',
         type: 'frolf',
-        duration: ''
+        duration: '',
+        message: false
       };
 
       expect(wrapper.state()).toEqual(initialState);
@@ -80,21 +83,32 @@ describe('CreateActivity', () => {
       const expectedLat = 38.8372452;
       const expectedLng = -97.617204;
       const expectedType = 'Investigation';
+      const expectedTime = 23;
+      Date.now = jest.fn().mockImplementation(() => 23);
 
       await wrapper.instance().storeActivity(mockEvent);
-      expect(db.doCreateActivity).toHaveBeenCalledWith(expectedAddress, expectedDuration, expectedLat, expectedLng, expectedType);
+      expect(db.doCreateActivity).toHaveBeenCalledWith(
+        expectedAddress, 
+        expectedDuration, 
+        expectedLat, 
+        expectedLng, 
+        expectedType, 
+        expectedTime
+      );
     });
 
     it('should reset state to the default settings', async () => {
       const initialState = {
         address: '221 B Baker St.',
         type: 'Investigation',
-        duration: '16 hours'
+        duration: '16 hours',
+        message: false
       };
       const expected = {
         address: '',
         type: '',
-        duration: ''
+        duration: '',
+        message: true
       };
 
       expect(wrapper.state()).toEqual(initialState);
@@ -109,12 +123,14 @@ describe('CreateActivity', () => {
       const initialState = {
         address: '221 B Baker St.',
         type: 'Investigation',
-        duration: '16 hours'
+        duration: '16 hours',
+        message: false
       };
       const expected = {
         address: '',
         type: '',
-        duration: ''
+        duration: '',
+        message: false
       };
       wrapper.setState(initialState);
 
@@ -128,35 +144,35 @@ describe('CreateActivity', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallow(<CreateActivity />)
+      wrapper = shallow(<CreateActivity />);
     });
     
     it('should call storeActivity onSubmit of the form', () => {
-      wrapper.instance().storeActivity = jest.fn()
+      wrapper.instance().storeActivity = jest.fn();
 
-      wrapper.find('.create').simulate('submit')
-      expect(wrapper.instance().storeActivity).toHaveBeenCalled()
+      wrapper.find('.create').simulate('submit');
+      expect(wrapper.instance().storeActivity).toHaveBeenCalled();
     });
 
     it('should call handleInput onChange of the type input', () => {
-      wrapper.instance().handleInput = jest.fn()
+      wrapper.instance().handleInput = jest.fn();
 
-      wrapper.find('.type-input').simulate('change')
-      expect(wrapper.instance().handleInput).toHaveBeenCalled()
+      wrapper.find('.type-input').simulate('change');
+      expect(wrapper.instance().handleInput).toHaveBeenCalled();
     });
 
     it('should call handleInput onChange of the address input', () => {
-      wrapper.instance().handleInput = jest.fn()
+      wrapper.instance().handleInput = jest.fn();
 
-      wrapper.find('.address-input').simulate('change')
-      expect(wrapper.instance().handleInput).toHaveBeenCalled()
+      wrapper.find('.address-input').simulate('change');
+      expect(wrapper.instance().handleInput).toHaveBeenCalled();
     });
 
     it('should call handleInput onChange of the duration input', () => {
-      wrapper.instance().handleInput = jest.fn()
+      wrapper.instance().handleInput = jest.fn();
 
-      wrapper.find('.duration-input').simulate('change')
-      expect(wrapper.instance().handleInput).toHaveBeenCalled()
+      wrapper.find('.duration-input').simulate('change');
+      expect(wrapper.instance().handleInput).toHaveBeenCalled();
     });
   });
 

@@ -25,4 +25,11 @@ describe('zipcodeReducer', () => {
     expect(result).toEqual(initialState);
   });
 
+  it('should return 80204 as a default state', () => {
+    const mockActivity = { type: 'REMOVE_USER' };
+    const result = zipcodeReducer(undefined, mockActivity);
+
+    expect(result).toEqual(80204);
+  });
+
 });
