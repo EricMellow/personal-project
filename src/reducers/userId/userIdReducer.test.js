@@ -36,4 +36,11 @@ describe('userIdReducer', () => {
     expect(result).toEqual(initialState);
   });
 
+  it('should return null as a default state', () => {
+    const mockActivity = { type: 'ADD_ZIPCODE' };
+    const result = userIdReducer(undefined, mockActivity);
+
+    expect(result).toEqual(null);
+  });
+
 });
