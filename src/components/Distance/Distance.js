@@ -5,7 +5,9 @@ import MapContainer from "../../containers/MapContainer/MapContainer";
 const Distance = () => {
   return (
     <div className="distance">
-      <MapContainer />
+      <div className="map-style">
+        <MapContainer />
+      </div>
     </div>
   );
 };

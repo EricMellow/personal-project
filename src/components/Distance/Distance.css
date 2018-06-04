@@ -8,3 +8,13 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.map-style {
+  background-color: rgba(28, 141, 196, .9);
+  display: flex;
+  width: 800px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+}
