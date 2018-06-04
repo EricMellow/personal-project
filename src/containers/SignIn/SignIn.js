@@ -58,33 +58,35 @@ export class SignIn extends Component {
       email === '';
 
     return (
-      <form className="sign-in" onSubmit={event => this.storeData(event)}>
-        <input
-          placeholder="Email Address"
-          name="email"
-          className="input email-input"
-          value={email}
-          onChange={event => this.handleInput(event)}
-          type="text"
-        />
-        <input
-          placeholder="Password"
-          name="password"
-          className="input password-input"
-          value={password}
-          onChange={event => this.handleInput(event)}
-          type="password"
-        />
-        <button 
-          type="submit" 
-          className="sign-in-btn"
-          disabled={invalidUserInfo}
-        >
-          Sign In
-        </button>
+      <div className="sign-in">
+        <form className="sign-in-form" onSubmit={event => this.storeData(event)}>
+          <input
+            placeholder="Email Address"
+            name="email"
+            className="input email-input"
+            value={email}
+            onChange={event => this.handleInput(event)}
+            type="text"
+          />
+          <input
+            placeholder="Password"
+            name="password"
+            className="input password-input"
+            value={password}
+            onChange={event => this.handleInput(event)}
+            type="password"
+          />
+          <button 
+            type="submit" 
+            className="sign-in-btn"
+            disabled={invalidUserInfo}
+          >
+            Sign In
+          </button>
 
-        {error && <p>{error}</p>}
-      </form>
+          {error && <p>{error}</p>}
+        </form>
+      </div>
     );
   }
 }
