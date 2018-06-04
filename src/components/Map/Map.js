@@ -13,12 +13,52 @@ export class Map extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.loadMap();
+    this.props.type ? this.loadType() : this.loadMap()
   }
 
   componentDidMount() {
     firebase.db.ref('actions/').on('value', snapshot => this.props.storeActivities(snapshot.val()));
     this.loadMap();
+  }
+
+  loadType = async () => {
+    if (this.props.google) {
+      const { google } = this.props;
+      const maps = google.maps;
+      const mapRef = this.refs.map;
+      const node = ReactDOM.findDOMNode(mapRef);
+      const mapCenter = await getLocation(this.props.zipcode);
+      const mapConfig = Object.assign({}, {
+        center: mapCenter,
+        zoom: 10,
+        gestureHandling: "cooperative",
+        mapTypeId: 'roadmap'
+      });
+
+      this.map = new maps.Map(node, mapConfig);
+
+      if (this.props.activities) {
+        const activityKeys = Object.keys(this.props.activities);
+        activityKeys.map((activity, index) => {
+
+          if (this.props.activities[activity].type.includes(this.props.type)) {
+            const storeActivity = this.props.activities[activity];
+            const marker = new google.maps.Marker({
+              position: { lat: storeActivity.lat, lng: storeActivity.lng },
+              map: this.map,
+              title: storeActivity.type
+            });
+            var infowindow = new google.maps.InfoWindow({
+              content: `<h3>${storeActivity.type}</h3>
+              <h4>Duration: ${storeActivity.duration}</h4>`
+            });
+            marker.addListener('click', function () {
+              infowindow.open(this.map, marker);
+            });
+          }
+        });
+      }
+    }
   }
 
   loadMap = async () => {

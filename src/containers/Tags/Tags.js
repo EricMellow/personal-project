@@ -29,7 +29,7 @@ export class Tags extends Component {
             className="input type-input"
             value={this.state.type}
             onChange={event => this.handleInput(event)}
-            type="number"
+            type="text"
           />
         </form>
         <MapContainer type={this.state.type}/>
