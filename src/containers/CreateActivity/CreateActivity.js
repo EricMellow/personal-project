@@ -46,7 +46,8 @@ export class CreateActivity extends Component {
     this.setState({
       address: '',
       type: '',
-      duration: ''
+      duration: '',
+      message: false
     });
   }
 
