@@ -5,6 +5,6 @@ const activitiesReducer = (state = {}, activity) => {
     default:
       return state;
   }
-}
+};
 
-export default activitiesReducer
+export default activitiesReducer;
