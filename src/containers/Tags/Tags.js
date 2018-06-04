@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import './Tags.css';
-import { connect } from 'react-redux';
 import MapContainer from "../MapContainer/MapContainer";
 
 export class Tags extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       type: ''
-    }
+    };
   }
 
   handleInput = (event) => {
@@ -32,7 +31,7 @@ export class Tags extends Component {
             type="text"
           />
         </form>
-        <MapContainer type={this.state.type}/>
+        <MapContainer type={this.state.type} />
       </div>
     );
   }
