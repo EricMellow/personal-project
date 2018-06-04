@@ -32,7 +32,8 @@ export class CreateActivity extends Component {
     event.preventDefault();
     const location = await getLocation(this.state.address);
     const time = Date.now();
-    db.doCreateActivity(address, duration, location.lat, location.lng, type, time);
+    const uppercaseType = type.toUpperCase()
+    db.doCreateActivity(address, duration, location.lat, location.lng, uppercaseType, time);
     this.resetInputFields();
     this.setState({ message: true });
     window.setTimeout(this.removeMessage, 5000);
