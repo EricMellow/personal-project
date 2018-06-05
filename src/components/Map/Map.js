@@ -91,7 +91,7 @@ export class Map extends Component {
             });
             var infowindow = new google.maps.InfoWindow({
               content: `<h3>${storeActivity.type}</h3>
-              <h4>Duration: ${storeActivity.duration}</h4>`
+              <h4>Duration: ${storeActivity.duration}hr</h4>`
             });
             marker.addListener('click', function () {
               infowindow.open(this.map, marker);
