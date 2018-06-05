@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { authenticateUser } from "../../actions/authenticateUser";
 import { addUserId } from "../../actions/userIdActions";
 import { addZipcode } from "../../actions/zipcodeActions";
+import { addUsername } from "../../actions/usernameActions";
+import PropTypes from 'prop-types';
 
 export class SignUp extends Component {
   constructor(props) {
@@ -50,7 +52,8 @@ export class SignUp extends Component {
       await db.doCreateUser(authUser.user.uid, username, email, zipcode);
       this.props.storeUserId(authUser.user.uid);
       this.props.authenticate();
-      this.props.storeZipcode(this.state.zipcode)
+      this.props.storeZipcode(zipcode)
+      this.props.storeUsername(username)
       this.resetState();
       this.props.history.push('/distance');
     } catch (error) {
@@ -129,10 +132,19 @@ export class SignUp extends Component {
   }
 }
 
+SignUp.propTypes = {
+  storeUsername: PropTypes.func,
+  storeZipcode: PropTypes.func,
+  storeUserId: PropTypes.func,
+  authenticate: PropTypes.func,
+  history: PropTypes.object
+};
+
 export const mapDispatchToProps = (dispatch) => ({
   authenticate: () => dispatch(authenticateUser()),
   storeUserId: (userId) => dispatch(addUserId(userId)),
-  storeZipcode: (zipcode) => dispatch(addZipcode(zipcode))
+  storeZipcode: (zipcode) => dispatch(addZipcode(zipcode)),
+  storeUsername: (username) => dispatch(addUsername(username))
 });
 
 
