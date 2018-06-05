@@ -10,10 +10,14 @@ export const Navigation = ({ authUser }) => {
   return (authUser ? <AuthNavigation /> : <UnauthNavigation />);
 };
 
-export const AuthNavigation = () => {
+export const AuthNavigation = (props) => {
   return (
     <div className='nav-bar'>
-      <h1 className="zone1">Apptivity Zone</h1>
+      <NavLink
+        to="/"
+        className="zone1">
+        Apptivity Zone
+      </NavLink>
       <NavLink 
         to="/distance" 
         className="nav-button">
@@ -47,8 +51,16 @@ export const AuthNavigation = () => {
 export const UnauthNavigation = () => {
   return (
     <div className='nav-bar'>
-      <h1 className="zone1">Apptivity Zone</h1>
-      <NavLink to="/signin" className="nav-button nav-sign-in-btn">Sign In</NavLink>
+      <NavLink
+        to="/"
+        className="zone1">
+        Apptivity Zone
+      </NavLink>
+      <NavLink 
+        to="/signin" 
+        className="nav-button nav-sign-in-btn">
+        Sign In
+      </NavLink>
     </div>
   )
 }
