@@ -79,18 +79,22 @@ describe('SignUp', () => {
     let mockEvent;
     let mockStoreUserId;
     let mockAuth;
+    let mockStoreUsername
 
     beforeEach(() => {
       mockEvent = { preventDefault: jest.fn() };
       mockHistory = { push: jest.fn() };
       mockStoreUserId = jest.fn();
+      mockStoreUsername = jest.fn();
       mockAuth = jest.fn();
       wrapper = shallow(<SignUp
         history={mockHistory}
         storeUserId={mockStoreUserId}
         authenticate={mockAuth}
+        storeUsername={mockStoreUsername}
       />);
       auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({ user: { uid: 12345 } }));
+      db.doCreateUser = jest.fn()
     });
 
     it('should call doCreateUserWithEmailAndPassword with the correct arguments', () => {
@@ -103,7 +107,19 @@ describe('SignUp', () => {
       expect(auth.doCreateUserWithEmailAndPassword).toHaveBeenCalledWith('test@test.com', 'trustnoone');
     });
 
-    it('should reset the state to the default parameters', async () => {
+    it('should call storeUserId with the correct argument', async () => {
+
+      await wrapper.instance().storeData(mockEvent);
+      expect(wrapper.instance().props.storeUserId).toHaveBeenCalledWith(12345);
+    });
+
+    it('should call authenticate', async () => {
+
+      await wrapper.instance().storeData(mockEvent);
+      expect(wrapper.instance().props.authenticate).toHaveBeenCalled();
+    });
+
+    it('should reset the state to the default parameters', () => {
       const initialState = {
         username: 'test',
         email: 'test@test.com',
@@ -112,6 +128,7 @@ describe('SignUp', () => {
         zipcode: '80401',
         error: null
       };
+
       wrapper.setState(initialState);
       const expected = {
         username: '',
@@ -123,7 +140,7 @@ describe('SignUp', () => {
       };
 
       expect(wrapper.state()).toEqual(initialState);
-      await wrapper.instance().storeData(mockEvent);
+      wrapper.instance().storeData(mockEvent);
       expect(wrapper.state()).toEqual(expected);
     });
 
