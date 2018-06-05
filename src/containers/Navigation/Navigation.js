@@ -5,6 +5,7 @@ import { auth } from "../../firebase";
 import { connect } from "react-redux";
 import { removeAuthenticatedUser } from "../../actions/authenticateUser";
 import { removeUserId } from "../../actions/userIdActions";
+import PropTypes from 'prop-types';
 
 export const Navigation = ({ authUser }) => {
   return (authUser ? <AuthNavigation /> : <UnauthNavigation />);
@@ -38,8 +39,8 @@ export const AuthNavigation = (props) => {
         className="nav-button sign-out"
         onClick={() => {
           auth.doSignOut();
-          this.props.removeId();
-          this.props.removeUser();
+          props.removeId();
+          props.removeUser();
         }} 
       >
         Sign Out
@@ -62,8 +63,18 @@ export const UnauthNavigation = () => {
         Sign In
       </NavLink>
     </div>
-  )
-}
+  );
+};
+
+AuthNavigation.propTypes = {
+  authUser: PropTypes.bool,
+  removeUser: PropTypes.func,
+  removeId: PropTypes.func
+};
+
+Navigation.propTypes = {
+  authUser: PropTypes.bool
+};
 
 export const mapStateToProps = (state) => ({
   authUser: state.authUser
