@@ -56,7 +56,9 @@ export const AuthNavigation = ({username, zipcode, removeId, removeUser}) => {
           Sign Out
         </NavLink>
       </div>
-      <div className="user-display">{username}</div>
+      <div className="user-display">
+        Welcome, {username}! Your default view is zip code {zipcode}.
+      </div>
     </nav>
   );
 };
