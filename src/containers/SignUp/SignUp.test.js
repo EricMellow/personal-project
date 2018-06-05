@@ -79,22 +79,26 @@ describe('SignUp', () => {
     let mockEvent;
     let mockStoreUserId;
     let mockAuth;
-    let mockStoreUsername
+    let mockStoreUsername;
+    let mockStoreZipcode
 
     beforeEach(() => {
       mockEvent = { preventDefault: jest.fn() };
       mockHistory = { push: jest.fn() };
       mockStoreUserId = jest.fn();
       mockStoreUsername = jest.fn();
+      mockStoreZipcode = jest.fn()
       mockAuth = jest.fn();
+      auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({ user: { uid: 12345 } }));
+      db.doCreateUser = jest.fn()
+
       wrapper = shallow(<SignUp
         history={mockHistory}
         storeUserId={mockStoreUserId}
         authenticate={mockAuth}
         storeUsername={mockStoreUsername}
+        storeZipcode={mockStoreZipcode}
       />);
-      auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({ user: { uid: 12345 } }));
-      db.doCreateUser = jest.fn()
     });
 
     it('should call doCreateUserWithEmailAndPassword with the correct arguments', () => {
@@ -119,30 +123,53 @@ describe('SignUp', () => {
       expect(wrapper.instance().props.authenticate).toHaveBeenCalled();
     });
 
-    it('should reset the state to the default parameters', () => {
-      const initialState = {
-        username: 'test',
-        email: 'test@test.com',
-        password: 'password',
-        confirmPassword: 'password',
-        zipcode: '80401',
-        error: null
-      };
-
-      wrapper.setState(initialState);
-      const expected = {
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        zipcode: undefined,
-        error: null
-      };
-
-      expect(wrapper.state()).toEqual(initialState);
-      wrapper.instance().storeData(mockEvent);
-      expect(wrapper.state()).toEqual(expected);
+    it('should call storeZipcode with the correct arguments', async () => {
+      wrapper.setState({
+        zipcode: 90210
+      })
+      await wrapper.instance().storeData(mockEvent);
+      expect(wrapper.instance().props.storeZipcode).toHaveBeenCalledWith(90210);
     });
+
+    it('should call storeZipcode with the correct arguments', async () => {
+      wrapper.setState({
+        username: 'Todd'
+      })
+      await wrapper.instance().storeData(mockEvent);
+      expect(wrapper.instance().props.storeUsername).toHaveBeenCalledWith('Todd');
+    });
+
+    it('should call resetState', async () => {
+      wrapper.instance().resetState = jest.fn()
+
+      await wrapper.instance().storeData(mockEvent);
+      expect(wrapper.instance().resetState).toHaveBeenCalled();
+    });
+
+    // it('should reset the state to the default parameters', () => {
+    //   const initialState = {
+    //     username: 'test',
+    //     email: 'test@test.com',
+    //     password: 'password',
+    //     confirmPassword: 'password',
+    //     zipcode: '80401',
+    //     error: null
+    //   };
+
+    //   wrapper.setState(initialState);
+    //   const expected = {
+    //     username: '',
+    //     email: '',
+    //     password: '',
+    //     confirmPassword: '',
+    //     zipcode: undefined,
+    //     error: null
+    //   };
+
+    //   expect(wrapper.state()).toEqual(initialState);
+    //   wrapper.instance().storeData(mockEvent);
+    //   expect(wrapper.state()).toEqual(expected);
+    // });
 
     // it('should set the error key in state with a value of the error message if there is an error', () => {
     //   auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.reject(new Error({message: 'oops!'})));
@@ -155,7 +182,7 @@ describe('SignUp', () => {
 
   });
 
-  describe('return', () => {
+  describe('render', () => {
     let wrapper;
 
     beforeEach(() => {
@@ -171,6 +198,11 @@ describe('SignUp', () => {
 
     it('should call handleInput on change of the username input', () => {
       wrapper.find('input.name-input').simulate('change');
+      expect(wrapper.instance().handleInput).toHaveBeenCalled();
+    });
+
+    it('should call handleInput on change of the username input', () => {
+      wrapper.find('input.zip-input').simulate('change');
       expect(wrapper.instance().handleInput).toHaveBeenCalled();
     });
 
@@ -200,6 +232,30 @@ describe('SignUp', () => {
       };
 
       mappedProps.authenticate();
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct argument on addZipcode', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'ADD_ZIPCODE',
+        zipcode: 90210
+      };
+
+      mappedProps.storeZipcode(90210);
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct argument on aaddUsername', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'ADD_USERNAME',
+        username: 'Todd'
+      };
+
+      mappedProps.storeUsername('Todd');
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
 
