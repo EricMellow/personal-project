@@ -1,11 +1,13 @@
 .nav-button {
   margin: 10px;
   text-decoration: none;
-  color: white
+  color: white;
+  padding: 5px;
 }
 
-.nav-button:visited {
-  text-decoration: none;
+.nav-button:hover {
+  padding: 5px;
+  border-bottom: 2px solid white;
 }
 
 .nav-bar {

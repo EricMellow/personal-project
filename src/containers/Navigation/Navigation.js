@@ -21,12 +21,12 @@ export const AuthNavigation = (props) => {
       <NavLink 
         to="/distance" 
         className="nav-button">
-        Distance
+        See Activities in Your Area
       </NavLink>
       <NavLink 
         to="/tags" 
         className="nav-button">
-        Type
+        Search By Type
       </NavLink>
       <NavLink 
         to="/create" 

@@ -17,82 +17,41 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
-        <form>
-          <input
-                    className="input type-input"
-                    name="type"
-                    onChange={[Function]}
-                    placeholder="Search for a type of activity"
-                    type="text"
-                    value=""
-          />
-</form>,
+      "children": <div
+        className="tags-style"
+>
+        <form
+                className="tags-form"
+                onSubmit={[Function]}
+        >
+                <input
+                        className="input add-type-input"
+                        name="type"
+                        onChange={[Function]}
+                        placeholder="Search for a type of activity"
+                        type="text"
+                        value=""
+                />
+        </form>
         <Wrapper
-          type=""
-/>,
-      ],
-      "className": "tags",
+                type=""
+        />
+</div>,
+      "className": "tags ",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <input
-            className="input type-input"
-            name="type"
-            onChange={[Function]}
-            placeholder="Search for a type of activity"
-            type="text"
-            value=""
-/>,
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "className": "input type-input",
-            "name": "type",
-            "onChange": [Function],
-            "placeholder": "Search for a type of activity",
-            "type": "text",
-            "value": "",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "input",
-        },
-        "type": "form",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "type": "",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <form>
+          <form
+            className="tags-form"
+            onSubmit={[Function]}
+>
             <input
-                        className="input type-input"
+                        className="input add-type-input"
                         name="type"
                         onChange={[Function]}
                         placeholder="Search for a type of activity"
@@ -104,7 +63,7 @@ ShallowWrapper {
             type=""
 />,
         ],
-        "className": "tags",
+        "className": "tags-style",
       },
       "ref": null,
       "rendered": Array [
@@ -114,13 +73,15 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <input
-              className="input type-input"
+              className="input add-type-input"
               name="type"
               onChange={[Function]}
               placeholder="Search for a type of activity"
               type="text"
               value=""
 />,
+            "className": "tags-form",
+            "onSubmit": [Function],
           },
           "ref": null,
           "rendered": Object {
@@ -128,7 +89,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "className": "input type-input",
+              "className": "input add-type-input",
               "name": "type",
               "onChange": [Function],
               "placeholder": "Search for a type of activity",
@@ -153,6 +114,115 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="tags-style"
+>
+          <form
+                    className="tags-form"
+                    onSubmit={[Function]}
+          >
+                    <input
+                              className="input add-type-input"
+                              name="type"
+                              onChange={[Function]}
+                              placeholder="Search for a type of activity"
+                              type="text"
+                              value=""
+                    />
+          </form>
+          <Wrapper
+                    type=""
+          />
+</div>,
+        "className": "tags ",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <form
+              className="tags-form"
+              onSubmit={[Function]}
+>
+              <input
+                            className="input add-type-input"
+                            name="type"
+                            onChange={[Function]}
+                            placeholder="Search for a type of activity"
+                            type="text"
+                            value=""
+              />
+</form>,
+            <Wrapper
+              type=""
+/>,
+          ],
+          "className": "tags-style",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <input
+                className="input add-type-input"
+                name="type"
+                onChange={[Function]}
+                placeholder="Search for a type of activity"
+                type="text"
+                value=""
+/>,
+              "className": "tags-form",
+              "onSubmit": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "input add-type-input",
+                "name": "type",
+                "onChange": [Function],
+                "placeholder": "Search for a type of activity",
+                "type": "text",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            "type": "form",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "type": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
       "type": "div",
     },
   ],
