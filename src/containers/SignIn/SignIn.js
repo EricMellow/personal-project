@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import { authenticateUser } from "../../actions/authenticateUser";
 import { addUserId } from "../../actions/userIdActions";
 import { addZipcode } from "../../actions/zipcodeActions";
+import { addUsername } from "../../actions/usernameActions";
 import * as firebase from "../../firebase/firebase";
+import PropTypes from 'prop-types';
 
 export class SignIn extends Component {
   constructor(props) {
@@ -39,13 +41,17 @@ export class SignIn extends Component {
       this.resetState();
       this.props.authenticate();
       firebase.db.ref(`users/${authUser.user.uid}`).once('value')
-        .then(snapshot => this.props.storeZipcode(snapshot.val().zipcode));
+        .then(snapshot => this.storeInfo(snapshot.val().zipcode, snapshot.val().username));
       this.props.history.push('/distance');
     } catch (error) {
       this.setState({ error: error.message });
     }
   }
 
+  storeInfo = (zipcode, username) => {
+    this.props.storeZipcode(zipcode);
+    this.props.storeUsername(username);
+  }
   render() {
     const {
       email,
@@ -91,10 +97,19 @@ export class SignIn extends Component {
   }
 }
 
+SignIn.propTypes = {
+  storeUsername: PropTypes.func,
+  storeZipcode: PropTypes.func,
+  storeUserId: PropTypes.func,
+  authenticate: PropTypes.func,
+  history: PropTypes.object
+};
+
 export const mapDispatchToProps = (dispatch) => ({
   authenticate: () => dispatch(authenticateUser()),
   storeUserId: (userId) => dispatch(addUserId(userId)),
-  storeZipcode: (zipcode) => dispatch(addZipcode(zipcode))
+  storeZipcode: (zipcode) => dispatch(addZipcode(zipcode)),
+  storeUsername: (username) => dispatch(addUsername(username))
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);
