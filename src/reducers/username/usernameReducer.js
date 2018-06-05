@@ -1,10 +1,12 @@
 const usernameReducer = (state = '', action) => {
   switch (action.type) {
     case 'ADD_USERNAME':
-      return action.username
+      return action.username;
+    case 'REMOVE_USERNAME':
+      return '';
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default usernameReducer
+export default usernameReducer;
