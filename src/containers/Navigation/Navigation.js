@@ -13,6 +13,7 @@ export const Navigation = ({ authUser }) => {
 export const AuthNavigation = () => {
   return (
     <div className='nav-bar'>
+      <h1 className="zone1">Apptivity Zone</h1>
       <NavLink 
         to="/distance" 
         className="nav-button">
@@ -46,8 +47,8 @@ export const AuthNavigation = () => {
 export const UnauthNavigation = () => {
   return (
     <div className='nav-bar'>
-      <NavLink to="/signin" className="nav-button">Sign In</NavLink>
-      <NavLink to="/signup" className="nav-button">Sign Up</NavLink>
+      <h1 className="zone1">Apptivity Zone</h1>
+      <NavLink to="/signin" className="nav-button nav-sign-in-btn">Sign In</NavLink>
     </div>
   )
 }

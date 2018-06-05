@@ -1,5 +1,7 @@
 .nav-button {
-  margin: 10px
+  margin: 10px;
+  text-decoration: none;
+  color: white
 }
 
 .nav-button:visited {
@@ -7,12 +9,26 @@
 }
 
 .nav-bar {
-  height: 3rem;
-  background: none;
+  height: 4rem;
+  background: rgba(28, 141, 196, .9);
   position: absolute;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100vw;
   font-size: 2rem
+}
+
+.zone1 {
+  color: white;
+  font-size: 3rem;
+  font-family: 'Megrim', cursive;
+}
+
+.nav-sign-in-btn {
+  text-decoration: none;
+  color: white;
+  border: 3px solid;
+  padding: 5px;
+  border-radius: 5px;
 }
