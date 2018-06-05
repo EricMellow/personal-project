@@ -6,14 +6,15 @@ import { connect } from "react-redux";
 import { db } from '../../firebase';
 import * as firebase from "../../firebase/firebase";
 import { addActivities } from "../../actions/activitiesActions";
+import PropTypes from 'prop-types';
 
 export class Map extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    this.props.type ? this.loadType() : this.loadMap()
+  componentDidUpdate() {
+    this.props.type ? this.loadType() : this.loadMap();
   }
 
   componentDidMount() {
@@ -113,6 +114,15 @@ export class Map extends Component {
     );
   }
 }
+
+Map.propTypes = {
+  storeActivities: PropTypes.func,
+  history: PropTypes.object,
+  type: PropTypes.string,
+  activities: PropTypes.object,
+  zipcode: PropTypes.number,
+  google: PropTypes.object
+};
 
 export const mapStateToProps = ({ zipcode, activities }) => ({
   zipcode,

@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import './Landing.css';
 import { connect } from "react-redux";
 import { addZipcode } from "../../actions/zipcodeActions";
-import { getLocation } from "../../apiCalls/apiCalls";
+// import { getLocation } from "../../apiCalls/apiCalls";
 import { NavLink } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export class Landing extends Component {
   constructor(props) {
@@ -57,8 +58,13 @@ export class Landing extends Component {
   }
 }
 
+Landing.propTypes = {
+  storeZipcode: PropTypes.func,
+  history: PropTypes.object
+};
+
 export const mapDispatchToProps = (dispatch) => ({
   storeZipcode: (zipcode) => dispatch(addZipcode(zipcode))
-})
+});
 
 export default connect(null, mapDispatchToProps)(Landing);
