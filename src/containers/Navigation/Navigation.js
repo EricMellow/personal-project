@@ -7,45 +7,57 @@ import { removeAuthenticatedUser } from "../../actions/authenticateUser";
 import { removeUserId } from "../../actions/userIdActions";
 import PropTypes from 'prop-types';
 
-export const Navigation = ({ authUser }) => {
-  return (authUser ? <AuthNavigation /> : <UnauthNavigation />);
+export const Navigation = (props) => {
+  return (
+    props.authUser ? 
+      <AuthNavigation 
+        username={props.username} 
+        zipcode={props.zipcode}
+        removeId={props.removeId}
+        removeUser={props.removeUser}
+      /> : 
+      <UnauthNavigation />
+  );
 };
 
-export const AuthNavigation = (props) => {
+export const AuthNavigation = ({username, zipcode, removeId, removeUser}) => {
   return (
-    <div className='nav-bar'>
-      <NavLink
-        to="/"
-        className="zone1">
-        Apptivity Zone
-      </NavLink>
-      <NavLink 
-        to="/distance" 
-        className="nav-button">
-        See Activities in Your Area
-      </NavLink>
-      <NavLink 
-        to="/tags" 
-        className="nav-button">
-        Search By Type
-      </NavLink>
-      <NavLink 
-        to="/create" 
-        className="nav-button">
-        Create Activity
-      </NavLink>
-      <NavLink 
-        to="/" 
-        className="nav-button sign-out"
-        onClick={() => {
-          auth.doSignOut();
-          props.removeId();
-          props.removeUser();
-        }} 
-      >
-        Sign Out
-      </NavLink>
-    </div>
+    <nav>
+      <div className='nav-bar'>
+        <NavLink
+          to="/"
+          className="zone1">
+          Apptivity Zone
+        </NavLink>
+        <NavLink 
+          to="/distance" 
+          className="nav-button">
+          See Activities in Your Area
+        </NavLink>
+        <NavLink 
+          to="/tags" 
+          className="nav-button">
+          Search By Type
+        </NavLink>
+        <NavLink 
+          to="/create" 
+          className="nav-button">
+          Create Activity
+        </NavLink>
+        <NavLink 
+          to="/" 
+          className="nav-button sign-out"
+          onClick={() => {
+            auth.doSignOut();
+            removeId();
+            removeUser();
+          }} 
+        >
+          Sign Out
+        </NavLink>
+      </div>
+      <div className="user-display">{username}</div>
+    </nav>
   );
 };
 
@@ -77,7 +89,9 @@ Navigation.propTypes = {
 };
 
 export const mapStateToProps = (state) => ({
-  authUser: state.authUser
+  authUser: state.authUser,
+  username: state.username,
+  zipcode: state.zipcode
 });
 
 export const mapDispatchToProps = (dispatch) => ({
