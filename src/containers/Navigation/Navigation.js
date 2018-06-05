@@ -5,6 +5,7 @@ import { auth } from "../../firebase";
 import { connect } from "react-redux";
 import { removeAuthenticatedUser } from "../../actions/authenticateUser";
 import { removeUserId } from "../../actions/userIdActions";
+import { removeZipcode } from "../../actions/zipcodeActions";
 import PropTypes from 'prop-types';
 
 export const Navigation = (props) => {
@@ -15,12 +16,13 @@ export const Navigation = (props) => {
         zipcode={props.zipcode}
         removeId={props.removeId}
         removeUser={props.removeUser}
+        removeZip={props.removeZip}
       /> : 
       <UnauthNavigation />
   );
 };
 
-export const AuthNavigation = ({username, zipcode, removeId, removeUser}) => {
+export const AuthNavigation = ({username, zipcode, removeId, removeUser, removeZip}) => {
   return (
     <nav>
       <div className='nav-bar'>
@@ -51,6 +53,7 @@ export const AuthNavigation = ({username, zipcode, removeId, removeUser}) => {
             auth.doSignOut();
             removeId();
             removeUser();
+            removeZip();
           }} 
         >
           Sign Out
@@ -98,7 +101,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   removeUser: () => dispatch(removeAuthenticatedUser()),
-  removeId: () => dispatch(removeUserId())
+  removeId: () => dispatch(removeUserId()),
+  removeZip: () => dispatch(removeZipcode())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
