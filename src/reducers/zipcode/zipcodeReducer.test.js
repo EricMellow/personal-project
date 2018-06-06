@@ -14,6 +14,17 @@ describe('zipcodeReducer', () => {
     expect(result).toEqual(90210);
   });
 
+  it('should return 80204 when passed a REMOVE_ZIPCODE action', () => {
+    const initialState = 90210
+    const mockAction = {
+      type: 'REMOVE_ZIPCODE',
+    };
+
+    const result = zipcodeReducer(initialState, mockAction);
+
+    expect(result).toEqual(80204);
+  });
+
   it('should return the initialState when passed an action not related to adding a zipcode', () => {
     const initialState = 80204;
     const mockAction = {
