@@ -18,6 +18,3 @@ export const doCreateActivity = (address, duration, lat, lng, type, time) =>
     lng,
     time
   })
-
-// export const onceGetUsers = () =>
-//   db.ref('users').once('value');
