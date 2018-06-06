@@ -4,7 +4,8 @@ import {
   removeAuthenticatedUser 
 } from "./authenticateUser";
 import { addUserId, removeUserId } from "./userIdActions";
-import { addZipcode } from "./zipcodeActions";
+import { addZipcode, removeZipcode } from "./zipcodeActions";
+import { addUsername, removeUsername } from "./usernameActions";
 
 describe('addActivities', () => {
   
@@ -82,7 +83,7 @@ describe('removeUserId', () => {
 
 describe('addZipcode', () => {
 
-  it('should return a zipcode activity', () => {
+  it('should return a zipcode action', () => {
     const mockZipcode = 12345
     const expected = {
       type: 'ADD_ZIPCODE',
@@ -90,6 +91,47 @@ describe('addZipcode', () => {
     }
 
     const result = addZipcode(mockZipcode)
+
+    expect(result).toEqual(expected)
+  });
+});
+
+describe('removeZipcode', () => {
+
+  it('should return a blank zipcode action', () => {
+    const expected = {
+      type: 'REMOVE_ZIPCODE'
+    }
+
+    const result = removeZipcode()
+
+    expect(result).toEqual(expected)
+  });
+});
+
+describe('addUsername', () => {
+
+  it('should return a username action', () => {
+    const mockUsername = 'Todd'
+    const expected = {
+      type: 'ADD_USERNAME',
+      username: 'Todd'
+    }
+
+    const result = addUsername(mockUsername)
+
+    expect(result).toEqual(expected)
+  });
+});
+
+describe('removeUsername', () => {
+
+  it('should return a blank username action', () => {
+    const expected = {
+      type: 'REMOVE_USERNAME'
+    }
+
+    const result = removeUsername()
 
     expect(result).toEqual(expected)
   });
