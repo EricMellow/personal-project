@@ -52,6 +52,7 @@ export class SignIn extends Component {
     this.props.storeZipcode(zipcode);
     this.props.storeUsername(username);
   }
+  
   render() {
     const {
       email,
