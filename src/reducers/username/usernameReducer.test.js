@@ -15,9 +15,9 @@ describe('usernameReducer', () => {
   });
 
   it('should return an empty string when passed a REMOVE_USERNAME action', () => {
-    const initialState = 'Todd'
+    const initialState = 'Todd';
     const mockAction = {
-      type: 'REMOVE_USERNAME',
+      type: 'REMOVE_USERNAME'
     };
 
     const result = usernameReducer(initialState, mockAction);

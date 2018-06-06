@@ -13,11 +13,11 @@ jest.mock('firebase', () => ({
   apps: [{}],
   database: jest.fn().mockImplementation(() => ({
     ref: jest.fn().mockImplementation(() => ({
-        push: jest.fn(),
-        set: jest.fn()
-      }
+      push: jest.fn(),
+      set: jest.fn()
+    }
     ))
-  })),
+  }))
 }));
 
 describe('doCreateUser', () => {
@@ -26,7 +26,7 @@ describe('doCreateUser', () => {
     const mockEmail = 'test@test.com';
     const mockId = 12345;
     const mockUsername = 'Test';
-    const mockZip = 90210
+    const mockZip = 90210;
 
     doCreateUser(mockId, mockUsername, mockEmail, mockZip);
     expect(db.ref).toHaveBeenCalled();

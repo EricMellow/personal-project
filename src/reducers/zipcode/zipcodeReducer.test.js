@@ -15,9 +15,9 @@ describe('zipcodeReducer', () => {
   });
 
   it('should return 80204 when passed a REMOVE_ZIPCODE action', () => {
-    const initialState = 90210
+    const initialState = 90210;
     const mockAction = {
-      type: 'REMOVE_ZIPCODE',
+      type: 'REMOVE_ZIPCODE'
     };
 
     const result = zipcodeReducer(initialState, mockAction);

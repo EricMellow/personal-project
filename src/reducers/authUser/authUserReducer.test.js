@@ -1,7 +1,7 @@
 import authUserReducer from "./authUserReducer";
 
 describe('authUserReducer', () => {
-  
+
   it('should return true when passed an AUTHENTICATED_USER action', () => {
     const initialState = false;
     const mockAction = {

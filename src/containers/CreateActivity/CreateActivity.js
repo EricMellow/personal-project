@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './CreateActivity.css';
-// import { firebaseKey } from "../../keys";
 import { db } from '../../firebase';
 import { getLocation } from "../../apiCalls/apiCalls";
 
@@ -33,7 +32,14 @@ export class CreateActivity extends Component {
     const location = await getLocation(this.state.address);
     const time = Date.now();
     const uppercaseType = type.toUpperCase();
-    db.doCreateActivity(address, duration, location.lat, location.lng, uppercaseType, time);
+    db.doCreateActivity(
+      address, 
+      duration, 
+      location.lat, 
+      location.lng, 
+      uppercaseType, 
+      time
+    );
     this.resetInputFields();
     this.setState({ message: true });
     window.setTimeout(this.removeMessage, 5000);
@@ -66,7 +72,10 @@ export class CreateActivity extends Component {
 
     return (
       <div className="create">
-        <form className="create-form" onSubmit={event => this.storeActivity(event)}>
+        <form 
+          className="create-form" 
+          onSubmit={event => this.storeActivity(event)}
+        >
           <input
             placeholder="Event Type"
             name="type"

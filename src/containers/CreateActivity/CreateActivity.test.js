@@ -2,8 +2,6 @@ import React from "react";
 import { CreateActivity } from "./CreateActivity";
 import { shallow } from "enzyme";
 import { db } from '../../firebase';
-import { firebaseKey } from "../../keys";
-
 
 describe('CreateActivity', () => {
 
@@ -88,11 +86,11 @@ describe('CreateActivity', () => {
 
       await wrapper.instance().storeActivity(mockEvent);
       expect(db.doCreateActivity).toHaveBeenCalledWith(
-        expectedAddress, 
-        expectedDuration, 
-        expectedLat, 
-        expectedLng, 
-        expectedType, 
+        expectedAddress,
+        expectedDuration,
+        expectedLat,
+        expectedLng,
+        expectedType,
         expectedTime
       );
     });
@@ -146,7 +144,7 @@ describe('CreateActivity', () => {
     beforeEach(() => {
       wrapper = shallow(<CreateActivity />);
     });
-    
+
     it('should call storeActivity onSubmit of the form', () => {
       wrapper.instance().storeActivity = jest.fn();
 

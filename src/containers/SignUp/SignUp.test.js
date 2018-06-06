@@ -80,17 +80,17 @@ describe('SignUp', () => {
     let mockStoreUserId;
     let mockAuth;
     let mockStoreUsername;
-    let mockStoreZipcode
+    let mockStoreZipcode;
 
     beforeEach(() => {
       mockEvent = { preventDefault: jest.fn() };
       mockHistory = { push: jest.fn() };
       mockStoreUserId = jest.fn();
       mockStoreUsername = jest.fn();
-      mockStoreZipcode = jest.fn()
+      mockStoreZipcode = jest.fn();
       mockAuth = jest.fn();
       auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.resolve({ user: { uid: 12345 } }));
-      db.doCreateUser = jest.fn()
+      db.doCreateUser = jest.fn();
 
       wrapper = shallow(<SignUp
         history={mockHistory}
@@ -126,7 +126,7 @@ describe('SignUp', () => {
     it('should call storeZipcode with the correct arguments', async () => {
       wrapper.setState({
         zipcode: 90210
-      })
+      });
       await wrapper.instance().storeData(mockEvent);
       expect(wrapper.instance().props.storeZipcode).toHaveBeenCalledWith(90210);
     });
@@ -134,51 +134,17 @@ describe('SignUp', () => {
     it('should call storeZipcode with the correct arguments', async () => {
       wrapper.setState({
         username: 'Todd'
-      })
+      });
       await wrapper.instance().storeData(mockEvent);
       expect(wrapper.instance().props.storeUsername).toHaveBeenCalledWith('Todd');
     });
 
     it('should call resetState', async () => {
-      wrapper.instance().resetState = jest.fn()
+      wrapper.instance().resetState = jest.fn();
 
       await wrapper.instance().storeData(mockEvent);
       expect(wrapper.instance().resetState).toHaveBeenCalled();
     });
-
-    // it('should reset the state to the default parameters', () => {
-    //   const initialState = {
-    //     username: 'test',
-    //     email: 'test@test.com',
-    //     password: 'password',
-    //     confirmPassword: 'password',
-    //     zipcode: '80401',
-    //     error: null
-    //   };
-
-    //   wrapper.setState(initialState);
-    //   const expected = {
-    //     username: '',
-    //     email: '',
-    //     password: '',
-    //     confirmPassword: '',
-    //     zipcode: undefined,
-    //     error: null
-    //   };
-
-    //   expect(wrapper.state()).toEqual(initialState);
-    //   wrapper.instance().storeData(mockEvent);
-    //   expect(wrapper.state()).toEqual(expected);
-    // });
-
-    // it('should set the error key in state with a value of the error message if there is an error', () => {
-    //   auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.reject(new Error({message: 'oops!'})));
-    //   const expected = 'oops!';
-
-    //   wrapper.instance().storeData(mockEvent);
-    //   expect(wrapper.state('error')).toEqual(expected);
-
-    // });
 
   });
 

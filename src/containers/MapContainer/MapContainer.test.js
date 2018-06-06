@@ -4,7 +4,7 @@ import { MapContainer } from "./MapContainer";
 
 describe('MapContainer', () => {
   it('should match the snapshot', () => {
-    const wrapper = shallow(<MapContainer />)
+    const wrapper = shallow(<MapContainer />);
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -18,21 +18,443 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
-    "props": Object {},
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="nav-bar"
+>
+          <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="zone1"
+                    to="/"
+          >
+                    Apptivity Zone
+          </NavLink>
+          <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="nav-button"
+                    to="/distance"
+          >
+                    See Activities in Your Area
+          </NavLink>
+          <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="nav-button"
+                    to="/tags"
+          >
+                    Search By Type
+          </NavLink>
+          <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="nav-button"
+                    to="/create"
+          >
+                    Create Activity
+          </NavLink>
+          <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="nav-button sign-out"
+                    onClick={[Function]}
+                    to="/"
+          >
+                    Sign Out
+          </NavLink>
+</div>,
+        <div
+          className="user-display"
+>
+          Welcome, 
+          ! Your default view is zip code 
+          .
+</div>,
+      ],
+    },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="zone1"
+              to="/"
+>
+              Apptivity Zone
+</NavLink>,
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="nav-button"
+              to="/distance"
+>
+              See Activities in Your Area
+</NavLink>,
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="nav-button"
+              to="/tags"
+>
+              Search By Type
+</NavLink>,
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="nav-button"
+              to="/create"
+>
+              Create Activity
+</NavLink>,
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="nav-button sign-out"
+              onClick={[Function]}
+              to="/"
+>
+              Sign Out
+</NavLink>,
+          ],
+          "className": "nav-bar",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "ariaCurrent": "true",
+              "children": "Apptivity Zone",
+              "className": "zone1",
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": "Apptivity Zone",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "ariaCurrent": "true",
+              "children": "See Activities in Your Area",
+              "className": "nav-button",
+              "to": "/distance",
+            },
+            "ref": null,
+            "rendered": "See Activities in Your Area",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "ariaCurrent": "true",
+              "children": "Search By Type",
+              "className": "nav-button",
+              "to": "/tags",
+            },
+            "ref": null,
+            "rendered": "Search By Type",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "ariaCurrent": "true",
+              "children": "Create Activity",
+              "className": "nav-button",
+              "to": "/create",
+            },
+            "ref": null,
+            "rendered": "Create Activity",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "ariaCurrent": "true",
+              "children": "Sign Out",
+              "className": "nav-button sign-out",
+              "onClick": [Function],
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": "Sign Out",
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Welcome, ",
+            undefined,
+            "! Your default view is zip code ",
+            undefined,
+            ".",
+          ],
+          "className": "user-display",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Welcome, ",
+          undefined,
+          "! Your default view is zip code ",
+          undefined,
+          ".",
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "nav",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
-      "props": Object {},
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="nav-bar"
+>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        className="zone1"
+                        to="/"
+            >
+                        Apptivity Zone
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        className="nav-button"
+                        to="/distance"
+            >
+                        See Activities in Your Area
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        className="nav-button"
+                        to="/tags"
+            >
+                        Search By Type
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        className="nav-button"
+                        to="/create"
+            >
+                        Create Activity
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        className="nav-button sign-out"
+                        onClick={[Function]}
+                        to="/"
+            >
+                        Sign Out
+            </NavLink>
+</div>,
+          <div
+            className="user-display"
+>
+            Welcome, 
+            ! Your default view is zip code 
+            .
+</div>,
+        ],
+      },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                className="zone1"
+                to="/"
+>
+                Apptivity Zone
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                className="nav-button"
+                to="/distance"
+>
+                See Activities in Your Area
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                className="nav-button"
+                to="/tags"
+>
+                Search By Type
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                className="nav-button"
+                to="/create"
+>
+                Create Activity
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                className="nav-button sign-out"
+                onClick={[Function]}
+                to="/"
+>
+                Sign Out
+</NavLink>,
+            ],
+            "className": "nav-bar",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": "Apptivity Zone",
+                "className": "zone1",
+                "to": "/",
+              },
+              "ref": null,
+              "rendered": "Apptivity Zone",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": "See Activities in Your Area",
+                "className": "nav-button",
+                "to": "/distance",
+              },
+              "ref": null,
+              "rendered": "See Activities in Your Area",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": "Search By Type",
+                "className": "nav-button",
+                "to": "/tags",
+              },
+              "ref": null,
+              "rendered": "Search By Type",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": "Create Activity",
+                "className": "nav-button",
+                "to": "/create",
+              },
+              "ref": null,
+              "rendered": "Create Activity",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": "Sign Out",
+                "className": "nav-button sign-out",
+                "onClick": [Function],
+                "to": "/",
+              },
+              "ref": null,
+              "rendered": "Sign Out",
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Welcome, ",
+              undefined,
+              "! Your default view is zip code ",
+              undefined,
+              ".",
+            ],
+            "className": "user-display",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Welcome, ",
+            undefined,
+            "! Your default view is zip code ",
+            undefined,
+            ".",
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "nav",
     },
   ],
   Symbol(enzyme.__options__): Object {

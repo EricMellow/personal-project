@@ -1,45 +1,46 @@
 .nav-button {
-  margin: 10px;
-  text-decoration: none;
   color: white;
+  margin: 10px;
   padding: 5px;
+  text-decoration: none;
 }
 
 .nav-button:hover {
-  padding: 5px;
   border-bottom: 2px solid white;
+  padding: 5px;
 }
 
 .nav-bar {
-      height: 15vh;
-    background: rgba(28, 141, 196, .9);
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    font-size: 1.5rem;
+  align-items: center;
+  background: rgba(28, 141, 196, .9);
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.5rem;
+  height: 15vh;
+  justify-content: space-between;
+  width: 100vw;
 }
 
 .zone1 {
   color: white;
-  font-size: 3rem;
   font-family: 'Megrim', cursive;
+  font-size: 3rem;
+  margin-left: 10px
 }
 
 .nav-sign-in-btn {
-  text-decoration: none;
-  color: white;
-  border: 3px solid;
-  padding: 5px;
   border-radius: 5px;
+  border: 3px solid;
+  color: white;
+  padding: 5px;
+  text-decoration: none;
 }
 
 .user-display {
+  background-color: #3395c7;
+  color: white;
+  font-size: 1.2rem;
+  padding: 5px;
+  width: 240px;
   position: absolute;
-    color: white;
-    background-color: #3395c7;
-    padding: 5px;
-    font-size: 1.2rem;
-    width: 240px;
 }

@@ -1,20 +1,20 @@
 .distance {
-  background: url(../../assets/bricks1.jpg); 
-  height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background: url(../../assets/bricks1.jpg); 
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  justify-content: center;
 }
 
 .map-style {
+  align-items: center;
   background-color: rgba(28, 141, 196, .9);
-    display: flex;
-    width: 649px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: center;
+  width: 649px;
 }

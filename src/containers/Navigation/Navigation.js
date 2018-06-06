@@ -11,20 +11,27 @@ import PropTypes from 'prop-types';
 
 export const Navigation = (props) => {
   return (
-    props.authUser ? 
-      <AuthNavigation 
-        username={props.username} 
+    props.authUser ?
+      <AuthNavigation
+        username={props.username}
         zipcode={props.zipcode}
         removeId={props.removeId}
         removeUser={props.removeUser}
         removeZip={props.removeZip}
         removeUsername={props.removeUsername}
-      /> : 
+      /> :
       <UnauthNavigation />
   );
 };
 
-export const AuthNavigation = ({username, zipcode, removeId, removeUser, removeZip, removeUsername}) => {
+export const AuthNavigation = ({
+  username,
+  zipcode,
+  removeId,
+  removeUser,
+  removeZip,
+  removeUsername
+}) => {
   return (
     <nav>
       <div className='nav-bar'>
@@ -33,23 +40,23 @@ export const AuthNavigation = ({username, zipcode, removeId, removeUser, removeZ
           className="zone1">
           Apptivity Zone
         </NavLink>
-        <NavLink 
-          to="/distance" 
+        <NavLink
+          to="/distance"
           className="nav-button">
           See Activities in Your Area
         </NavLink>
-        <NavLink 
-          to="/tags" 
+        <NavLink
+          to="/tags"
           className="nav-button">
           Search By Type
         </NavLink>
-        <NavLink 
-          to="/create" 
+        <NavLink
+          to="/create"
           className="nav-button">
           Create Activity
         </NavLink>
-        <NavLink 
-          to="/" 
+        <NavLink
+          to="/"
           className="nav-button sign-out"
           onClick={() => {
             auth.doSignOut();
@@ -57,7 +64,7 @@ export const AuthNavigation = ({username, zipcode, removeId, removeUser, removeZ
             removeUser();
             removeZip();
             removeUsername();
-          }} 
+          }}
         >
           Sign Out
         </NavLink>
@@ -77,8 +84,8 @@ export const UnauthNavigation = () => {
         className="zone1">
         Apptivity Zone
       </NavLink>
-      <NavLink 
-        to="/signin" 
+      <NavLink
+        to="/signin"
         className="nav-button nav-sign-in-btn">
         Sign In
       </NavLink>
@@ -88,12 +95,22 @@ export const UnauthNavigation = () => {
 
 AuthNavigation.propTypes = {
   authUser: PropTypes.bool,
+  username: PropTypes.string,
+  zipcode: PropTypes.number,
+  removeId: PropTypes.func,
   removeUser: PropTypes.func,
-  removeId: PropTypes.func
+  removeZip: PropTypes.func,
+  removeUsername: PropTypes.func
 };
 
 Navigation.propTypes = {
-  authUser: PropTypes.bool
+  authUser: PropTypes.bool,
+  username: PropTypes.string,
+  zipcode: PropTypes.number,
+  removeId: PropTypes.func,
+  removeUser: PropTypes.func,
+  removeZip: PropTypes.func,
+  removeUsername: PropTypes.func
 };
 
 export const mapStateToProps = (state) => ({

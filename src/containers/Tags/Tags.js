@@ -22,7 +22,10 @@ export class Tags extends Component {
     return (
       <div className="tags ">
         <div className="tags-style" >
-          <form className="tags-form" onSubmit={event => event.preventDefault()}>
+          <form
+            className="tags-form"
+            onSubmit={event => event.preventDefault()}
+          >
             <input
               placeholder="Search for a type of activity"
               name="type"

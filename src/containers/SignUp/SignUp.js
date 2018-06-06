@@ -52,8 +52,8 @@ export class SignUp extends Component {
       await db.doCreateUser(authUser.user.uid, username, email, zipcode);
       this.props.storeUserId(authUser.user.uid);
       this.props.authenticate();
-      this.props.storeZipcode(zipcode)
-      this.props.storeUsername(username)
+      this.props.storeZipcode(zipcode);
+      this.props.storeUsername(username);
       this.resetState();
       this.props.history.push('/distance');
     } catch (error) {

@@ -112,36 +112,27 @@ describe('SignIn', () => {
       expect(wrapper.state()).toEqual(expected);
     });
 
-    // it('should set the error key in state with a value of the error message if there is an error', () => {
-    //   auth.doCreateUserWithEmailAndPassword = jest.fn().mockImplementation(() => Promise.reject(new Error({message: 'oops!'})));
-    //   const expected = 'oops!';
-
-    //   wrapper.instance().storeData(mockEvent);
-    //   expect(wrapper.state('error')).toEqual(expected);
-
-    // });
-
   });
 
   describe('storeInfo', () => {
     let wrapper;
     let mockStoreUser;
-    let mockStoreZip
+    let mockStoreZip;
 
     beforeEach(() => {
-      mockStoreZip = jest.fn()
-      mockStoreUser = jest.fn()
-      wrapper = shallow(<SignIn storeZipcode={mockStoreZip} storeUsername={mockStoreUser}/>)
+      mockStoreZip = jest.fn();
+      mockStoreUser = jest.fn();
+      wrapper = shallow(<SignIn storeZipcode={mockStoreZip} storeUsername={mockStoreUser} />);
     });
 
     it('should call storeZipcode with the correct argument', () => {
-      wrapper.instance().storeInfo(90210, 'Todd')
-      expect(wrapper.instance().props.storeZipcode).toHaveBeenCalledWith(90210)
+      wrapper.instance().storeInfo(90210, 'Todd');
+      expect(wrapper.instance().props.storeZipcode).toHaveBeenCalledWith(90210);
     });
 
     it('should call storeUsername with the correct argument', () => {
-      wrapper.instance().storeInfo(90210, 'Todd')
-      expect(wrapper.instance().props.storeUsername).toHaveBeenCalledWith('Todd')
+      wrapper.instance().storeInfo(90210, 'Todd');
+      expect(wrapper.instance().props.storeUsername).toHaveBeenCalledWith('Todd');
     });
   });
 
@@ -217,7 +208,7 @@ describe('SignIn', () => {
 
       mappedProps.storeUsername('Todd');
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
   });
-})
 
 });
