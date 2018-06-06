@@ -36,7 +36,6 @@ export class Tags extends Component {
             />
           </form>
           <MapContainer type={this.state.type} />
-          
         </div>
       </div>
     );
