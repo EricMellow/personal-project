@@ -1,3 +1,5 @@
+![Screen Shot](https://github.com/EricMellow/personal-project/blob/master/Screen%20Shot%202018-06-05%20at%208.57.13%20PM.png?raw=true)
+
 # Apptivity Zone
 
 Apptivity Zone (AZ) is a react web app to help you find spontaneous activities to join! Without signing in, you can use AZ to search for activities in your zip code. To create an activity, just sign up and add your activity details. The pin for your activity will only display on the map for the duration you set when creating the activity. Once logged in, you can also search for activities in your area by type of activity.
