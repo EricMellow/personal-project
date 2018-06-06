@@ -1,2 +1,3 @@
 **/*.css
 src/registerServiceWorker.js
+**/*test.js

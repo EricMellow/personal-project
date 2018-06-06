@@ -123,7 +123,29 @@ describe('SignIn', () => {
 
   });
 
-  describe('return', () => {
+  describe('storeInfo', () => {
+    let wrapper;
+    let mockStoreUser;
+    let mockStoreZip
+
+    beforeEach(() => {
+      mockStoreZip = jest.fn()
+      mockStoreUser = jest.fn()
+      wrapper = shallow(<SignIn storeZipcode={mockStoreZip} storeUsername={mockStoreUser}/>)
+    });
+
+    it('should call storeZipcode with the correct argument', () => {
+      wrapper.instance().storeInfo(90210, 'Todd')
+      expect(wrapper.instance().props.storeZipcode).toHaveBeenCalledWith(90210)
+    });
+
+    it('should call storeUsername with the correct argument', () => {
+      wrapper.instance().storeInfo(90210, 'Todd')
+      expect(wrapper.instance().props.storeUsername).toHaveBeenCalledWith('Todd')
+    });
+  });
+
+  describe('render', () => {
     let wrapper;
 
     beforeEach(() => {
@@ -184,6 +206,18 @@ describe('SignIn', () => {
       mappedProps.storeZipcode(90210);
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
+
+    it('should call dispatch on addUsername with the correct argument', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'ADD_USERNAME',
+        username: 'Todd'
+      };
+
+      mappedProps.storeUsername('Todd');
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
   });
+})
 
 });

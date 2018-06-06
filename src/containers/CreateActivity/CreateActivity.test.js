@@ -82,7 +82,7 @@ describe('CreateActivity', () => {
       const expectedDuration = '16 hours';
       const expectedLat = 38.8372452;
       const expectedLng = -97.617204;
-      const expectedType = 'Investigation';
+      const expectedType = 'INVESTIGATION';
       const expectedTime = 23;
       Date.now = jest.fn().mockImplementation(() => 23);
 
@@ -150,7 +150,7 @@ describe('CreateActivity', () => {
     it('should call storeActivity onSubmit of the form', () => {
       wrapper.instance().storeActivity = jest.fn();
 
-      wrapper.find('.create').simulate('submit');
+      wrapper.find('.create-form').simulate('submit');
       expect(wrapper.instance().storeActivity).toHaveBeenCalled();
     });
 

@@ -2,6 +2,8 @@ import { GoogleApiWrapper } from 'google-maps-react';
 import React, {Component} from "react";
 import { firebaseKey } from "../../keys";
 import Map from "../../components/Map/Map";
+import PropTypes from 'prop-types';
+
 
 export class MapContainer extends Component {
 
@@ -11,6 +13,11 @@ export class MapContainer extends Component {
     );
   }
 }
+
+MapContainer.propTypes = {
+  type: PropTypes.string,
+  google: PropTypes.object
+};
 
 export default GoogleApiWrapper({
   apiKey: firebaseKey,

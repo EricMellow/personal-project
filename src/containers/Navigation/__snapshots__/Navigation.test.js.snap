@@ -66,18 +66,18 @@ ShallowWrapper {
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
-          className="nav-button"
-          to="/signin"
+          className="zone1"
+          to="/"
 >
-          Sign In
+          Apptivity Zone
 </NavLink>,
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
-          className="nav-button"
-          to="/signup"
+          className="nav-button nav-sign-in-btn"
+          to="/signin"
 >
-          Sign Up
+          Sign In
 </NavLink>,
       ],
       "className": "nav-bar",
@@ -91,12 +91,12 @@ ShallowWrapper {
         "props": Object {
           "activeClassName": "active",
           "ariaCurrent": "true",
-          "children": "Sign In",
-          "className": "nav-button",
-          "to": "/signin",
+          "children": "Apptivity Zone",
+          "className": "zone1",
+          "to": "/",
         },
         "ref": null,
-        "rendered": "Sign In",
+        "rendered": "Apptivity Zone",
         "type": [Function],
       },
       Object {
@@ -106,12 +106,12 @@ ShallowWrapper {
         "props": Object {
           "activeClassName": "active",
           "ariaCurrent": "true",
-          "children": "Sign Up",
-          "className": "nav-button",
-          "to": "/signup",
+          "children": "Sign In",
+          "className": "nav-button nav-sign-in-btn",
+          "to": "/signin",
         },
         "ref": null,
-        "rendered": "Sign Up",
+        "rendered": "Sign In",
         "type": [Function],
       },
     ],
@@ -127,18 +127,18 @@ ShallowWrapper {
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
-            className="nav-button"
-            to="/signin"
+            className="zone1"
+            to="/"
 >
-            Sign In
+            Apptivity Zone
 </NavLink>,
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
-            className="nav-button"
-            to="/signup"
+            className="nav-button nav-sign-in-btn"
+            to="/signin"
 >
-            Sign Up
+            Sign In
 </NavLink>,
         ],
         "className": "nav-bar",
@@ -152,12 +152,12 @@ ShallowWrapper {
           "props": Object {
             "activeClassName": "active",
             "ariaCurrent": "true",
-            "children": "Sign In",
-            "className": "nav-button",
-            "to": "/signin",
+            "children": "Apptivity Zone",
+            "className": "zone1",
+            "to": "/",
           },
           "ref": null,
-          "rendered": "Sign In",
+          "rendered": "Apptivity Zone",
           "type": [Function],
         },
         Object {
@@ -167,12 +167,12 @@ ShallowWrapper {
           "props": Object {
             "activeClassName": "active",
             "ariaCurrent": "true",
-            "children": "Sign Up",
-            "className": "nav-button",
-            "to": "/signup",
+            "children": "Sign In",
+            "className": "nav-button nav-sign-in-btn",
+            "to": "/signin",
           },
           "ref": null,
-          "rendered": "Sign Up",
+          "rendered": "Sign In",
           "type": [Function],
         },
       ],

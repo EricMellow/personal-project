@@ -99,5 +99,28 @@ describe('Navigation', () => {
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
+
+    it('should call dispatch with the correct params on removeZipcode', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'REMOVE_ZIPCODE'
+      };
+      mappedProps.removeZip();
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on removeUsername', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'REMOVE_USERNAME'
+      };
+      mappedProps.removeUsername();
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
   });
 });

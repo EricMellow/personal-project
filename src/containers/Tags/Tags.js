@@ -13,25 +13,27 @@ export class Tags extends Component {
   handleInput = (event) => {
     event.preventDefault();
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value.toUpperCase()
     });
   }
 
   render() {
 
     return (
-      <div className="tags">
-        <form>
-          <input
-            placeholder="Search for a type of activity"
-            name="type"
-            className="input type-input"
-            value={this.state.type}
-            onChange={event => this.handleInput(event)}
-            type="text"
-          />
-        </form>
-        <MapContainer type={this.state.type} />
+      <div className="tags ">
+        <div className="tags-style" >
+          <form className="tags-form" onSubmit={event => event.preventDefault()}>
+            <input
+              placeholder="Search for a type of activity"
+              name="type"
+              className="input add-type-input"
+              value={this.state.type}
+              onChange={event => this.handleInput(event)}
+              type="text"
+            />
+          </form>
+          <MapContainer type={this.state.type} />
+        </div>
       </div>
     );
   }
