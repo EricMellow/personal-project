@@ -27,4 +27,4 @@ npm test -- --coverage
 
 ## Authors
 
-* **Eric Jungbluth** - *Initial work* - [GitHub](https://github.com/EricMellow)
+* **Eric Jungbluth** - [GitHub](https://github.com/EricMellow)
