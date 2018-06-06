@@ -39,6 +39,25 @@ describe('Tags', () => {
 
   describe('render', () => {
     
+    it('should prevent the default action onSubmit', () => {
+      const mockEvent = { preventDefault: jest.fn() }
+      const wrapper = shallow(<Tags />)
+
+      wrapper.find('.tags-form').simulate('submit', mockEvent)
+      expect(mockEvent.preventDefault).toHaveBeenCalled()
+    });
+  
+
+  it('should call handleInput onCHange of the input', () => {
+    const mockEvent = { preventDefault: jest.fn() }
+    const wrapper = shallow(<Tags />)
+    wrapper.instance().handleInput = jest.fn()
+
+    wrapper.find('.add-type-input').simulate('change')
+    expect(wrapper.instance().handleInput).toHaveBeenCalled()
+  });
+
+
     // it('should call handleInput onChange of the input field', () => {
     //   const wrapper = shallow(<Tags />)
     //   wrapper.instance().handleInput = jest.fn()
