@@ -1,51 +1,51 @@
 .create {
-  background: url(../../assets/bricks1.jpg); 
-  height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background: url(../../assets/bricks1.jpg); 
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  justify-content: center;
 }
 
 .create-form{
+  align-items: center;
   background-color: rgba(28, 141, 196, .9);
   display: flex;
-  width: 50%;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 70%;
+  justify-content: center;
+  width: 50%;
 }
 
 .input {
   background: none;
-  height: 3rem;
-  border: 3px solid white;
-  width: 75%;
-  color: white;
-  padding-left: 10px;
-  margin: 20px;
-  font-size: 2rem;
   border-radius: 5px;
+  border: 3px solid white;
+  color: white;
+  font-size: 2rem;
+  height: 3rem;
+  margin: 20px;
+  padding-left: 10px;
+  width: 75%;
 }
 
 .add-btn {
-  height: 3rem;
-  width: 75%;
-  border-radius: 5px;
-  font-size: 2rem;
-  color: white;
   background: none;
+  border-radius: 5px;
   border: 2px solid white;
+  color: white;
+  font-size: 2rem;
+  height: 3rem;
   margin: 20px;
+  width: 75%;
 }
 
 .add-btn:disabled {
-  color: rgb(67, 119, 144);
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid rgb(67, 119, 144);
+  color: rgb(67, 119, 144);
 }
 
 *, *:before, *:after {
@@ -57,7 +57,7 @@
 }
 
 form p {
-  font-size: 1.2rem;
   color: white;
+  font-size: 1.2rem;
   margin: 0;
 }

@@ -52,7 +52,7 @@ export class SignIn extends Component {
     this.props.storeZipcode(zipcode);
     this.props.storeUsername(username);
   }
-  
+
   render() {
     const {
       email,
@@ -66,7 +66,10 @@ export class SignIn extends Component {
 
     return (
       <div className="sign-in">
-        <form className="sign-in-form" onSubmit={event => this.storeData(event)}>
+        <form 
+          className="sign-in-form" 
+          onSubmit={event => this.storeData(event)}
+        >
           <input
             placeholder="Email Address"
             name="email"
@@ -83,8 +86,8 @@ export class SignIn extends Component {
             onChange={event => this.handleInput(event)}
             type="password"
           />
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="sign-in-btn"
             disabled={invalidUserInfo}
           >

@@ -1,14 +1,14 @@
 import { addActivities } from "./activitiesActions";
-import { 
-  authenticateUser, 
-  removeAuthenticatedUser 
+import {
+  authenticateUser,
+  removeAuthenticatedUser
 } from "./authenticateUser";
 import { addUserId, removeUserId } from "./userIdActions";
 import { addZipcode, removeZipcode } from "./zipcodeActions";
 import { addUsername, removeUsername } from "./usernameActions";
 
 describe('addActivities', () => {
-  
+
   it('should return an activities action', () => {
     const mockActivities = {
       fake: 'activities'
@@ -29,7 +29,7 @@ describe('addActivities', () => {
 describe('authenticateUser', () => {
 
   it('should return an authenticated user action', () => {
-    
+
     const expected = {
       type: 'AUTHENTICATED_USER'
     }

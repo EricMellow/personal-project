@@ -11,7 +11,7 @@ jest.mock('firebase', () => ({
     signInWithEmailAndPassword: jest.fn(),
     signOut: jest.fn()
   })),
-  apps:[{}],
+  apps: [{}],
   database: jest.fn()
 }));
 
@@ -40,7 +40,7 @@ describe('doSignInWithEmailAndPassword', () => {
 describe('doSignOut', () => {
 
   it('should call auth.signOut', () => {
-  
+
     doSignOut();
     expect(auth.signOut).toHaveBeenCalled();
   });

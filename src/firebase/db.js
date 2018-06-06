@@ -9,7 +9,7 @@ export const doCreateUser = (id, username, email, zipcode) =>
     zipcode
   });
 
-export const doCreateActivity = (address, duration, lat, lng, type, time) => 
+export const doCreateActivity = (address, duration, lat, lng, type, time) =>
   db.ref('actions/').push({
     address,
     type,
@@ -17,4 +17,4 @@ export const doCreateActivity = (address, duration, lat, lng, type, time) =>
     lat,
     lng,
     time
-  })
+  });

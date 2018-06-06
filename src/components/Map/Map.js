@@ -3,15 +3,11 @@ import ReactDOM from 'react-dom';
 import './Map.css';
 import { getLocation } from "../../apiCalls/apiCalls";
 import { connect } from "react-redux";
-import { db } from '../../firebase';
 import * as firebase from "../../firebase/firebase";
 import { addActivities } from "../../actions/activitiesActions";
 import PropTypes from 'prop-types';
 
 export class Map extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidUpdate() {
     this.props.type ? this.loadType() : this.loadMap();
@@ -40,7 +36,7 @@ export class Map extends Component {
 
       if (this.props.activities) {
         const activityKeys = Object.keys(this.props.activities);
-        activityKeys.map((activity, index) => {
+        activityKeys.map(activity => {
 
           if (this.props.activities[activity].type.includes(this.props.type)) {
             const storeActivity = this.props.activities[activity];
@@ -77,12 +73,12 @@ export class Map extends Component {
       });
 
       this.map = new maps.Map(node, mapConfig);
-      
+
       if (this.props.activities) {
         const activityKeys = Object.keys(this.props.activities);
         activityKeys.map((activity, index) => {
           const deleteMe = this.props.activities[activity].duration * 3600000;
-          
+
           if (Date.now() - this.props.activities[activity].time < deleteMe) {
             const storeActivity = this.props.activities[activity];
             const marker = new google.maps.Marker({

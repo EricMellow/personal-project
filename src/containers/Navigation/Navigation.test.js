@@ -29,7 +29,7 @@ describe('Navigation', () => {
       auth.doSignOut = jest.fn();
       mockRemoveId = jest.fn();
       mockRemoveUser = jest.fn();
-      wrapper = shallow(<Navigation 
+      wrapper = shallow(<AuthNavigation
         removeId={mockRemoveId}
         removeUser={mockRemoveUser}
       />);
@@ -38,12 +38,6 @@ describe('Navigation', () => {
     it('should match the snapshot', () => {
       expect(wrapper).toMatchSnapshot();
     });
-
-    // it('should call auth.doSignOut when the Sign Out button is clicked', () => {
-    //   wrapper.find('.sign-out').simulate('click');
-    //   expect(auth.doSignOut).toHaveBeenCalled();
-    // });
-
 
   });
 
