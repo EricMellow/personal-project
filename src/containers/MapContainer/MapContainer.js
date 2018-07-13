@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import { firebaseKey } from "../../keys";
 import Map from "../../components/Map/Map";
 import PropTypes from 'prop-types';
-require('dotenv').config()
+require('dotenv').config();
 
 
 export class MapContainer extends Component {
@@ -21,6 +21,6 @@ MapContainer.propTypes = {
 };
 
 export default GoogleApiWrapper({
-  apiKey: process.env.FIREBASE_KEY || firebaseKey,
+  apiKey: process.env.FIREBASE_KEY,
   libraries: ['visualization']
 })(MapContainer);
