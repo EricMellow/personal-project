@@ -22,7 +22,7 @@ npm test -- --coverage
 * React
 * Redux
 * Router
-* Firebase
+* Firebase for authorization and back-end
 * Google Maps and Google Geolocation APIs
 
 ## Authors
